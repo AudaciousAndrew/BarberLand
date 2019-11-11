@@ -1,0 +1,7 @@
+.header {
+  display: flex;
+  justify-content: space-between; }
+  .header__nav-links {
+    list-style: none;
+    display: flex;
+    color: red; }

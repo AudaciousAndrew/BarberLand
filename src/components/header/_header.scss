@@ -1,0 +1,18 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+
+    &__logo{
+
+    }
+
+    &__navigation{
+
+    }
+
+    &__nav-links{
+        list-style: none;
+        display: flex;
+        color: blue;
+    }
+}
