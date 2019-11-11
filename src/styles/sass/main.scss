@@ -3,8 +3,12 @@
 @import "abstracts/animations";
 @import "base/base";
 @import "base/typography";
+@import "base/utilities";
+@import "pages/home";
 
 //import components style
 @import "../../components/button/button";
 @import "../../components/header/header";
 @import "../../components/header/nav-bar/nav-bar";
+@import "../../components/reviews/reviews";
+@import "../../components/reviews/bg-video";

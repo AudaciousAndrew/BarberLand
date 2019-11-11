@@ -7,11 +7,11 @@ function Header() {
     <>
       <header className="header">
         <Navbar />
-        <div className="header__text-box">
-          <div className="header__heading-primary">
-            <h1 className="header__text-wrapper">
-              <span className="header__text-wrapper--main">BarberLand</span>
-              <span className="header__text-wrapper--sub">
+        <div className="header__text-box-wrapper">
+          <div className="header__text-box">
+            <h1 className="heading-primary">
+              <span className="heading-primary--main">BarberLand</span>
+              <span className="heading-primary--sub">
                 is where style happens
               </span>
             </h1>
