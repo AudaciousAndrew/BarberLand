@@ -1,0 +1,8 @@
+.reviews-container {
+  width: 70%;
+  margin: auto;
+
+  & > *:not(:last-child){
+      margin-bottom: 10rem;
+  }
+}
