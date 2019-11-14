@@ -1,16 +1,17 @@
 .header {
-  background-image: url(/img/header-img.jpg);
+  background-image: linear-gradient(
+      rgba($color-black, 0.8) 6rem,
+      rgba($color-grey-dark-3, 0.75) 6rem,
+      rgba($color-white, 0.2) 100%
+    ),
+    url(/img/header-img.jpg);
   background-size: cover;
   background-position: top;
   height: 100vh;
   color: $color-white;
+  margin-top: -6rem;
 
   &__text-box-wrapper {
-    background-image: linear-gradient(
-      to right bottom,
-      rgba($color-black, 0.8),
-      rgba($color-white, 0.3)
-    );
     height: calc(100vh - 6rem);
     display: flex;
     justify-content: center;

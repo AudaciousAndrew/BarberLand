@@ -1,12 +1,13 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function ButtonText(props) {
   return (
     <>
       <div className="u-center-text u-margin-top-huge">
-        <a href="/" className="btn-text">
+        <Link to={props.link} className="btn-text">
           {props.text}
-        </a>
+        </Link>
       </div>
     </>
   );
