@@ -1,6 +1,5 @@
 .header {
   background-image: linear-gradient(
-      rgba($color-black, 0.8) 6rem,
       rgba($color-grey-dark-3, 0.75) 6rem,
       rgba($color-white, 0.2) 100%
     ),
@@ -24,27 +23,19 @@
     align-items: center;
     transform: translateY(-20%);
   }
+}
 
-  &__text-wrapper {
-    margin-bottom: 4rem;
-    backface-visibility: hidden;
-    &--main {
-      display: block;
-      font-size: 6rem;
-      font-weight: 400;
-      letter-spacing: 3rem;
-      animation-name: moveInLeft;
-      animation-duration: 1s;
-      animation-timing-function: ease-out;
-    }
-    &--sub {
-      display: block;
-      font-size: 2rem;
-      font-weight: 700;
-      letter-spacing: 1.75rem;
-      animation-name: moveInRight;
-      animation-duration: 1s;
-      animation-timing-function: ease-out;
-    }
-  }
+.header-2 {
+  background-image: linear-gradient(
+      rgba($color-grey-dark-3, 0.75) 6rem,
+      rgba($color-white, 0.2) 100%
+    ),
+    url(/img/header-img-2.jpg);
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  background-size: cover;
+  background-position: top;
+  height: 100vh;
+  color: $color-white;
+  margin-top: -6rem;
 }

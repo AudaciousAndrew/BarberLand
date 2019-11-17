@@ -1,6 +1,6 @@
 import React from "react";
 import Story from "./story/story";
-import Button from "../button/button";
+import {NavLink} from "react-router-dom";
 
 function Reviews() {
   return (
@@ -37,11 +37,9 @@ function Reviews() {
             deleniti aliquid molestiae architecto."
           />
           <div className="u-center-text u-margin-top-huge">
-            <Button
-              className="btn-text btn-text--black-light"
-              location="/services"
-              text="Go to our services &rarr;"
-            />
+            <NavLink className="btn-text btn-text--black-light" to="/services">
+              Go to our services &rarr;
+            </NavLink>
           </div>
         </div>
       </section>

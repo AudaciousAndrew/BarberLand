@@ -1,0 +1,88 @@
+.form {
+    background-color: rgba($color-white-3, 0.8);
+    border-radius: 0.3rem;
+    -webkit-border-radius: 0.3rem;
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.8);
+    padding: 3rem;
+    font-size: $default-font-size;
+    animation: moveInRight 0.5s ease-in;
+    animation-fill-mode: backwards;
+  
+    &__input {
+      font-size: 1.5rem;
+      padding: 1.5rem 2rem;
+      border-radius: 0.2rem;
+      -webkit-border-radius: 0.2rem;
+      font-family: inherit;
+      color: inherit;
+      background-color: rgba($color-grey-light-2, 0.9);
+      border: none;
+      border-bottom: 0.3rem solid transparent;
+      display: block;
+      transition: all 0.3s;
+  
+      &:focus {
+        outline: none;
+        box-shadow: 0 1rem 2rem rgba($color-black, 0.1);
+        border-bottom: 0.3rem solid green;
+      }
+  
+      &:focus:invalid {
+        border-bottom: 0.3rem solid orangered;
+      }
+  
+      &::-webkit-input-placeholder {
+        color: $color-grey-dark-2;
+      }
+    }
+  
+    &__input:placeholder-shown + &__label {
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-4rem);
+    }
+  
+    &__label {
+      color: $color-grey-dark;
+      display: block;
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-left: 2rem;
+      margin-top: 0.7rem;
+      transition: all 0.3s;
+    }
+  
+    &__remember-label {
+      font-size: 1.2rem;
+    }
+  
+    &__remember-wrapper {
+      display: flex;
+      align-items: center;
+      input {
+        margin-right: 0.2rem;
+        transform: scale(1.2);
+      }
+    }
+  
+    &__text-link {
+      &:link,
+      &:visited {
+        color: $color-grey-dark;
+        text-decoration: none;
+      }
+  
+      &:hover {
+        text-decoration: underline;
+        color: $color-grey-dark-3;
+      }
+    }
+  
+    &__group {
+      color: $color-grey-dark-3;
+      &:not(:last-child) {
+        margin-bottom: 1rem;
+      }
+    }
+  }
+  

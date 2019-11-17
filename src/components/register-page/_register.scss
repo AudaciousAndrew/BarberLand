@@ -1,0 +1,16 @@
+.section-register {
+    background-image: linear-gradient(
+        rgba($color-black, 0.8) 6rem,
+        rgba($color-grey-dark-3, 0.75) 6rem,
+        rgba($color-white, 0.2) 100%
+      ),
+      url(/img/login.jpg);
+    background-size: cover;
+    background-position: top;
+    margin-top: -6rem;
+    height: 100vh;
+    padding-top: 6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }

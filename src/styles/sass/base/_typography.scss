@@ -34,7 +34,7 @@ body{
 }
 
 .heading-secondary{
-    background-image: linear-gradient(to right , $color-black-light , $color-grey-dark-3);
+    background-image: linear-gradient(to right , $color-black-light , $color-grey-dark);
     display: inline-block;
     transition: all .2s;
     -webkit-background-clip: text;
@@ -57,4 +57,18 @@ body{
     text-transform: uppercase;
     font-weight: 700;
     letter-spacing: .3rem;
+}
+
+.heading-quaternary{
+    font-size: $default-font-size;
+    font-weight: 700;
+    text-transform: uppercase;
+
+}
+
+.paragraph{
+    font-size: 1.6rem;
+    &:not(:last-child){
+        margin-bottom: 3rem;
+    }
 }

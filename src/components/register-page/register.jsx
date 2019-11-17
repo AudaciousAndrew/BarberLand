@@ -1,8 +1,11 @@
 import React from 'react';
+import RegisterForm from './registerForm/registerForm';
 
 function Register(){
     return <>
-    <h1>REGISTER</h1>
+    <section className="section-register">
+        <RegisterForm/>
+    </section>
     </>;
 }
 
