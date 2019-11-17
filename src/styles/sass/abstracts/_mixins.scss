@@ -1,0 +1,8 @@
+@mixin button-default {
+  font-size: $default-font-size;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+
+  cursor: pointer;
+}

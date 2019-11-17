@@ -1,6 +1,6 @@
 import React from "react";
 import Story from "./story/story";
-import ButtonText from "../buttonText/buttonText";
+import Button from "../button/button";
 
 function Reviews() {
   return (
@@ -36,7 +36,13 @@ function Reviews() {
             debitis quibusdam doloribus facere velit possimus eveniet beatae
             deleniti aliquid molestiae architecto."
           />
-          <ButtonText link="/services" text="Go to our services &rarr;" />
+          <div className="u-center-text u-margin-top-huge">
+            <Button
+              className="btn-text btn-text--black-light"
+              location="/services"
+              text="Go to our services &rarr;"
+            />
+          </div>
         </div>
       </section>
     </>

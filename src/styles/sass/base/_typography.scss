@@ -52,7 +52,9 @@ body{
 }
 
 .heading-tertiary{
-    font-size: $default-font-size;
+    color: $color-grey-dark-3;
+    font-size: 2rem;
     text-transform: uppercase;
     font-weight: 700;
+    letter-spacing: .3rem;
 }

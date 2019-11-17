@@ -13,7 +13,7 @@ function Slogan() {
                 is where style happens
               </span>
             </h1>
-            <Button text="check out our reviews" />
+            <Button location="/" className="btn btn--white btn--animated" text="check out our reviews" />
           </div>
         </div>
       </header>

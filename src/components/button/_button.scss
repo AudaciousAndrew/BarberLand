@@ -1,19 +1,16 @@
-  .btn {
+.btn {
   &,
   &:link,
   &:visited {
-    display: inline-block;
-    font-size: 1.6rem;
+    @include button-default;
     padding: 1.5rem 4rem;
     text-transform: uppercase;
     border-radius: 10rem;
-    text-decoration: none;
     position: relative;
     transition: all 1s;
 
     //Change for the <button> element
     border: none;
-    cursor: pointer;
   }
 
   &:hover {
@@ -58,5 +55,64 @@
   &--animated {
     animation: moveInBottom 0.5s ease-out 0.75s;
     animation-fill-mode: backwards;
+  }
+}
+
+.btn-square {
+  &,
+  &:link,
+  &:visited {
+    @include button-default;
+    padding: 0.5rem 2rem;
+    border-radius: 0.2rem;
+    transition: all 0.5s;
+    color: $color-grey-light-1;
+    border: none;
+  }
+
+  &:hover {
+    background-color: $color-grey-dark-4;
+    color: $color-grey-light-2;
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
+    transform: translateY(-0.5rem);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+
+  &--w-100{
+    width: 100%;
+  }
+
+  &--dark-grey {
+    background-color: $color-grey-dark-3;
+  }
+}
+
+.btn-text {
+  &:link,
+  &:visited {
+    @include button-default;
+    border-bottom: 0.1rem solid $color-black-light;
+    padding: 0.3rem 1rem;
+    transition: all 0.2s;
+    font-weight: 500;
+  }
+
+  &:hover {
+    background-color: $color-black-light;
+    color: $color-white;
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.15);
+    transform: translateY(-0.3rem);
+  }
+
+  &:active {
+    box-shadow: 0 0.5rem 1rem rgba($color-black, 0.15);
+    transform: translateY(0);
+  }
+
+  &--black-light{
+    color: $color-black-light;
   }
 }

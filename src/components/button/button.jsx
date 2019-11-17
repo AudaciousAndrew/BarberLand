@@ -1,9 +1,14 @@
-import React from 'react';
+import React from "react";
+import { Link } from "react-router-dom";
 
-function Button(props){
-    return <>
-        <a href="/" className="btn btn--white btn--animated">{props.text}</a>
+function Button({ className, text , location}) {
+  return (
+    <>
+      <Link to={location} className={className}>
+        {text}
+      </Link>
     </>
+  );
 }
 
 export default Button;
