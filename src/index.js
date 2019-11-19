@@ -9,13 +9,14 @@ import ServicesPage from "./components/ServicesPage/ServicesPage";
 import SignPage from "./components/SignPage/SignPage.jsx";
 import LoginForm from "./components/SignPage/LoginForm/LoginForm.jsx";
 import RegisterForm from "./components/SignPage/RegisterForm/RegisterForm.jsx";
+import ScrollToTopRoute from "./utilities/ScrollToTopRoute";
 
 const App = withRouter(({ location }) => {
   return (
     <>
       <Navbar />
-      <Route exact path="/" component={HomePage} />
-      <Route path="/services" component={ServicesPage} />
+      <ScrollToTopRoute exact path="/" component={HomePage} />
+      <ScrollToTopRoute path="/services" component={ServicesPage} />
       <Route
         path="/login"
         render={props => (

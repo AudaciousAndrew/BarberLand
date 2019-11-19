@@ -1,17 +1,13 @@
 import React from "react";
-import Story from "./Story/Story";
 import { NavLink } from "react-router-dom";
+import Story from "./Story/Story";
+import BgVideo from "./BgVideo/BgVideo";
 
 function SectionReviews() {
   return (
     <>
       <section className="section-reviews">
-        <div className="bg-video">
-          <video className="bg-video__content" autoPlay muted loop>
-            <source src="/videos/bg-video.mp4" type="video/mp4" />
-            Your browser is not supported!
-          </video>
-        </div>
+        <BgVideo source="/videos/bg-video.mp4"/>
         <div className="u-center-text u-margin-bottom-big">
           <h2 className="heading-secondary">We make people genuinely happy</h2>
         </div>
