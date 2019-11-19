@@ -1,0 +1,13 @@
+.section-reviews {
+  position: relative;
+  padding: 15rem 0;
+}
+
+.reviews-container {
+  width: 70%;
+  margin: auto;
+
+  & > *:not(:last-child) {
+    margin-bottom: 10rem;
+  }
+}

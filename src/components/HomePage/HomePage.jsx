@@ -1,9 +1,9 @@
 import React from "react";
-import Slogan from "../slogan/slogan";
-import Reviews from "../reviews/reviews";
-import Button from "../button/button";
+import Slogan from "../Slogan/Slogan";
+import SectionReviews from "./SectionReviews/SectionReviews";
+import Button from "../Button/Button";
 
-function Home() {
+function HomePage() {
   return (
     <>
       <Slogan className="header">
@@ -17,9 +17,9 @@ function Home() {
           text="check out our reviews"
         />
       </Slogan>
-      <Reviews />
+      <SectionReviews />
     </>
   );
 }
 
-export default Home;
+export default HomePage;

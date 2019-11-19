@@ -1,17 +1,9 @@
 import React from "react";
-import Slogan from "../slogan/slogan";
+import Composition from "./Composition/Composition";
 
-function Services() {
+function SectionTeam() {
   return (
     <>
-      <Slogan className="header-2">
-        <h1 className="heading-primary u-margin-top-huge">
-          <span className="heading-primary--main">Quality</span>
-          <span className="heading-primary--sub u-center-text">
-            <sup>over</sup>Quantity
-          </span>
-        </h1>
-      </Slogan>
       <section className="section-team">
         <div className="u-center-text">
           <h2 className="heading-secondary u-margin-bottom-big">
@@ -39,27 +31,11 @@ function Services() {
               earum rerum consectetur?
             </p>
           </div>
-          <div className="composition">
-            <img
-              src="/img/barber-1.jpg"
-              alt="Team member 1"
-              className="composition__photo composition__photo--p1"
-            />
-            <img
-              src="/img/barber-2.jpg"
-              alt="Team member 2"
-              className="composition__photo composition__photo--p2"
-            />
-            <img
-              src="/img/barber-3.jpg"
-              alt="Team member 3"
-              className="composition__photo composition__photo--p3"
-            />
-          </div>
+          <Composition />
         </div>
       </section>
     </>
   );
 }
 
-export default Services;
+export default SectionTeam;

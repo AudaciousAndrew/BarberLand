@@ -1,0 +1,22 @@
+.section-team {
+  background-color: $color-grey-light-1;
+  padding: 25rem 0;
+  margin-top: -20vh;
+  transform: skewY(-7deg);
+
+  & > * {
+    transform: skewY(7deg);
+  }
+}
+
+.team-description {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  justify-content: space-around;
+  backface-visibility: hidden;
+
+  &__text {
+    width: 45%;
+  }
+}

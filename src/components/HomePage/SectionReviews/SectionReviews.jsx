@@ -1,8 +1,8 @@
 import React from "react";
-import Story from "./story/story";
-import {NavLink} from "react-router-dom";
+import Story from "./Story/Story";
+import { NavLink } from "react-router-dom";
 
-function Reviews() {
+function SectionReviews() {
   return (
     <>
       <section className="section-reviews">
@@ -47,4 +47,4 @@ function Reviews() {
   );
 }
 
-export default Reviews;
+export default SectionReviews;

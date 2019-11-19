@@ -2,21 +2,36 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter, Route, withRouter } from "react-router-dom";
 import "./styles/sass/main.scss";
-import Navbar from "./components/nav-bar/nav-bar";
-import Home from "./components/home-page/home";
-import Services from "./components/services-page/services";
-import Login from "./components/login-page/login";
-import Footer from "./components/footer/footer";
-import Register from "./components/register-page/register";
+import Navbar from "./components/NavBar/NavBar";
+import Footer from "./components/Footer/Footer";
+import HomePage from "./components/HomePage/HomePage";
+import ServicesPage from "./components/ServicesPage/ServicesPage";
+import SignPage from "./components/SignPage/SignPage.jsx";
+import LoginForm from "./components/SignPage/LoginForm/LoginForm.jsx";
+import RegisterForm from "./components/SignPage/RegisterForm/RegisterForm.jsx";
 
-const Main = withRouter(({ location }) => {
+const App = withRouter(({ location }) => {
   return (
     <>
       <Navbar />
-      <Route exact path="/" component={Home} />
-      <Route path="/services" component={Services} />
-      <Route path="/login" component={Login} />
-      <Route path="/register" component={Register} />
+      <Route exact path="/" component={HomePage} />
+      <Route path="/services" component={ServicesPage} />
+      <Route
+        path="/login"
+        render={props => (
+          <SignPage>
+            <LoginForm />
+          </SignPage>
+        )}
+      />
+      <Route
+        path="/register"
+        render={props => (
+          <SignPage>
+            <RegisterForm />
+          </SignPage>
+        )}
+      />
       {location.pathname !== "/login" && location.pathname !== "/register" && (
         <Footer />
       )}
@@ -26,7 +41,7 @@ const Main = withRouter(({ location }) => {
 
 ReactDOM.render(
   <BrowserRouter>
-    <Main />
+    <App />
   </BrowserRouter>,
   document.getElementById("root")
 );

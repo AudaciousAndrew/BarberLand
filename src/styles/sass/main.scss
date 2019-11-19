@@ -1,20 +1,30 @@
+// import basic styles
 @import "abstracts/variables";
 @import "abstracts/mixins";
 @import "abstracts/animations";
 @import "base/base";
 @import "base/typography";
 @import "base/utilities";
-@import "pages/home";
 
 //import components style
-@import "../../components/button/button";
-@import "../../components/slogan/slogan";
-@import "../../components/nav-bar/nav-bar";
-@import "../../components/reviews/reviews";
-@import "../../components/reviews/bg-video";
-@import "../../components/reviews/story/story";
-@import "../../components/footer/footer";
-@import "../../components/login-page/login";
-@import "../../components/login-page/loginForm/loginForm";
-@import "../../components/register-page/register";
-@import "../../components/services-page/services";
+
+//Reusable components
+@import "../../components/Button/button";
+@import "../../components/Slogan/slogan";
+@import "../../components/NavBar/navBar";
+@import "../../components/Footer/footer";
+
+//Home page styles
+@import "../../components/HomePage/SectionReviews/sectionReviews";
+@import "../../components/HomePage/SectionReviews/bgVideo";
+@import "../../components/HomePage/SectionReviews/story/story";
+
+//Sign page styles
+@import "../../components/SignPage/signPage";
+@import "../../components/SignPage/form";
+
+//Services page styles
+@import "../../components/ServicesPage/Card/card";
+@import "../../components/ServicesPage/SectionServices/_sectionServices";
+@import "../../components/ServicesPage/SectionTeam/Composition/composition";
+@import "../../components/ServicesPage/SectionTeam/sectionTeam";

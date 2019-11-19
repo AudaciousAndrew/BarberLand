@@ -1,6 +1,5 @@
-.section-register {
+.section-sign {
     background-image: linear-gradient(
-        rgba($color-black, 0.8) 6rem,
         rgba($color-grey-dark-3, 0.75) 6rem,
         rgba($color-white, 0.2) 100%
       ),
@@ -13,4 +12,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
   }
+  
+  
