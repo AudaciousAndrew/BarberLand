@@ -1,7 +1,7 @@
 import React from "react";
-import Slogan from "../Slogan/Slogan";
+import Header from "../Header/Header";
 import SectionReviews from "./SectionReviews/SectionReviews";
-import Button from "../Button/Button";
+import ButtonAction from "../Buttons/ButtonAction/ButtonAction";
 
 class HomePage extends React.Component {
   constructor(props) {
@@ -12,26 +12,23 @@ class HomePage extends React.Component {
 
   handleButtonClick(event) {
     event.preventDefault();
-    //console.log(this.myRef);
-
     window.scrollTo(0, this.myRef.current.offsetTop);
   }
 
   render() {
     return (
       <>
-        <Slogan className="header">
-          <h1 className="heading-primary u-margin-top-huge">
+        <Header className="header">
+          <h1 className="heading-primary u-margin-bottom-big">
             <span className="heading-primary--main">BarberLand</span>
             <span className="heading-primary--sub">is where style happens</span>
           </h1>
-          <Button
-            location="#"
+          <ButtonAction
             className="btn btn--white btn--animated"
             text="check out our reviews"
             handleClick={this.handleButtonClick}
           />
-        </Slogan>
+        </Header>
         <div ref={this.myRef}>
           <SectionReviews />
         </div>

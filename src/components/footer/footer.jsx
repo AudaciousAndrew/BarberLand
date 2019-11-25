@@ -1,40 +1,40 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 function Footer() {
   return (
     <>
       <footer className="footer">
         <div className="footer__logo-box u-margin-bottom-big">
-          <span className="footer__logo">BarberLand&trade;</span>
+          <NavLink to="/" className="footer__logo footer__link">BarberLand&trade;</NavLink>
         </div>
         <div className="footer__row">
           <div className="footer__navigation">
             <ul className="footer__list">
               <li className="footer__item">
-                <Link className="footer__link" to="/">
+                <NavLink className="footer__link" to="/">
                   Home
-                </Link>
+                </NavLink>
               </li>
               <li className="footer__item">
-                <Link className="footer__link" to="/services">
+                <NavLink className="footer__link" to="/services">
                   Services
-                </Link>
+                </NavLink>
               </li>
               <li className="footer__item">
-                <Link className="footer__link" to="/login">
-                  Sign In/Up
-                </Link>
+                <NavLink className="footer__link" to="/login">
+                  Log In
+                </NavLink>
               </li>
               <li className="footer__item">
-                <Link className="footer__link" to="/">
-                  Privacy policy
-                </Link>
+                <NavLink className="footer__link" to="/register">
+                  Register
+                </NavLink>
               </li>
               <li className="footer__item">
-                <Link className="footer__link" to="/">
+                <NavLink className="footer__link" to="/">
                   About us
-                </Link>
+                </NavLink>
               </li>
             </ul>
           </div>

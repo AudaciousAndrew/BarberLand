@@ -1,11 +1,11 @@
 import React from "react";
 
-function Slogan({ children , className }) {
+function Header({ children , className }) {
   return (
     <>
       <header className={className}>
         <div className="header__text-box-wrapper">
-          <div className="header__text-box">
+          <div className={`${className}__text-box`}>
             {children}
           </div>
         </div>
@@ -14,4 +14,4 @@ function Slogan({ children , className }) {
   );
 }
 
-export default Slogan;
+export default Header;

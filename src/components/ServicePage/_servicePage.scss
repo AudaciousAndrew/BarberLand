@@ -1,0 +1,44 @@
+.service {
+  margin-top: -6rem;
+  padding: 10rem 0;
+  background-color: $color-white-3;
+
+  &__content {
+    width: 90%;
+    margin: auto;
+    display: flex;
+  }
+
+  &__img-wrapper {
+    margin-right: 5rem;
+    width: 40%;
+    padding-top: 2.1rem;
+    border-radius: 0.3rem;
+  }
+
+  &__img {
+    outline-offset: 2rem;
+    outline: 0.1rem solid $color-grey-dark-3;
+    width: 100%;
+    border-radius: 0.3rem;
+    box-shadow: 0rem 1rem 2rem rgba($color: #000000, $alpha: 0.6);
+  }
+
+  &__input-box {
+    width: 60%;
+  }
+
+  &__inputs-container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__input {
+    @include input-styles;
+    width: 100%;
+
+    &:not(:last-child) {
+      margin-right: 2rem;
+    }
+  }
+}

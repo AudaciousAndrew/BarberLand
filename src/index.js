@@ -10,6 +10,8 @@ import SignPage from "./components/SignPage/SignPage.jsx";
 import LoginForm from "./components/SignPage/LoginForm/LoginForm.jsx";
 import RegisterForm from "./components/SignPage/RegisterForm/RegisterForm.jsx";
 import ScrollToTopRoute from "./utilities/ScrollToTopRoute";
+import ServicePage from "./components/ServicePage/ServicePage.jsx";
+import ProfilePage from "./components/ProfilePage/ProfilePage.jsx";
 
 const App = withRouter(({ location }) => {
   return (
@@ -17,6 +19,8 @@ const App = withRouter(({ location }) => {
       <Navbar />
       <ScrollToTopRoute exact path="/" component={HomePage} />
       <ScrollToTopRoute path="/services" component={ServicesPage} />
+      <ScrollToTopRoute path="/service" component={ServicePage} />
+      <ScrollToTopRoute path="/profile" component={ProfilePage} />
       <Route
         path="/login"
         render={props => (

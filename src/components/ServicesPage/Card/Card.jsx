@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "../../Button/Button";
+import ButtonAction from "../../Buttons/ButtonAction/ButtonAction";
 
 function Card({ children, title , price, index }) {
   return (
@@ -22,7 +22,7 @@ function Card({ children, title , price, index }) {
               <div className="card__price-only">Only</div>
               <div className="card__price-value">${price}</div>
             </div>
-            <Button className="btn btn--white" text="Book now!" location="/" />
+            <ButtonAction className="btn btn--white" text="Book now!" />
           </div>
         </div>
       </div>

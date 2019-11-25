@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import ButtonAction from "../../Buttons/ButtonAction/ButtonAction";
 
 function RegisterForm() {
   return (
@@ -13,7 +13,7 @@ function RegisterForm() {
             type="text"
             className="form__input"
             placeholder="Login"
-            id="login"
+            id="register-login"
             required
           />
           <label htmlFor="login" className="form__label">
@@ -25,11 +25,11 @@ function RegisterForm() {
             type="email"
             className="form__input"
             placeholder="Email address"
-            id="password"
+            id="register-email"
             required
           />
           <label htmlFor="password" className="form__label">
-            Email
+            Email address
           </label>
         </div>
         <div className="form__group">
@@ -37,7 +37,7 @@ function RegisterForm() {
             type="password"
             className="form__input"
             placeholder="Password"
-            id="password"
+            id="register-password"
             required
           />
           <label htmlFor="password" className="form__label">
@@ -49,7 +49,7 @@ function RegisterForm() {
             type="password"
             className="form__input"
             placeholder="Confirm password"
-            id="password"
+            id="register-confirm-pass"
             required
           />
           <label htmlFor="password" className="form__label">
@@ -57,12 +57,10 @@ function RegisterForm() {
           </label>
         </div>
         <div className="form__group">
-          <NavLink
-            to="/"
+          <ButtonAction
             className="btn-square btn-square--dark-grey btn-square--w-100"
-          >
-            Submit
-          </NavLink>
+            text="Submit"
+          />
         </div>
       </form>
     </>

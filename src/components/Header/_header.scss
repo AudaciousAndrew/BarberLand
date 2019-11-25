@@ -1,0 +1,34 @@
+.header {
+  @include header-bg($img:"/img/header-img.jpg");
+
+  &__text-box-wrapper {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__text-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.header-2 {
+  @include header-bg($img:"/img/header-img-2.jpg")
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+
+  &__text-box {
+    transform: translateY(-100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+}
+
+.header-3 {
+  @include header-bg($img:"/img/account.jpg" , $height:50vh)
+}

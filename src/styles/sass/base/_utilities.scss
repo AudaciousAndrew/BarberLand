@@ -1,14 +1,17 @@
 .u-center-text {
   text-align: center !important;
 }
+.u-right-text {
+  text-align: right !important;
+}
 .u-text-small {
   font-size: 1.3rem !important;
 }
 .u-float-left {
-  float: left;
+  float: left !important;
 }
 .u-float-right {
-  float: right;
+  float: right !important;
 }
 .u-clearfix::after {
   content: "";
@@ -33,3 +36,11 @@
 .u-margin-top-small {
   margin-top: 1.5rem !important;
 }
+.u-border-bottom-grey{
+  border-bottom: .1rem solid $color-grey-dark-2;
+}
+.u-w-100{
+  width: 100% !important;
+}
+
+

@@ -1,5 +1,6 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import ButtonLink from "../../Buttons/ButtonLink/ButtonLink";
+import ButtonAction from "../../Buttons/ButtonAction/ButtonAction";
 
 function LoginForm() {
   return (
@@ -37,23 +38,25 @@ function LoginForm() {
             <input id="remember" type="checkbox" />
             <label htmlFor="remember">Remember Me</label>
           </div>
-          <NavLink to="/services" className="form__text-link u-float-right">
-            Forgot Password?
-          </NavLink>
+          <ButtonLink
+            location="/register"
+            text="Forgot Password?"
+            className="form__text-link u-float-right"
+          />
         </div>
         <div className="form__group">
-          <NavLink
-            to="/"
+          <ButtonAction
+            text="Enter"
             className="btn-square btn-square--dark-grey btn-square--w-100"
-          >
-            Enter
-          </NavLink>
+          />
         </div>
         <div className="form__group u-text-small u-center-text u-margin-top-medium">
           <span>Don't have an account yet?</span>
-          <NavLink to="/register" className="form__text-link">
-            Sign Up
-          </NavLink>
+          <ButtonLink
+            text="Sign Up"
+            location="/register"
+            className="form__text-link"
+          />
         </div>
       </form>
     </>

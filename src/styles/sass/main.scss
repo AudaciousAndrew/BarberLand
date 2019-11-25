@@ -9,8 +9,8 @@
 //import components style
 
 //Reusable components
-@import "../../components/Button/button";
-@import "../../components/Slogan/slogan";
+@import "../../components/Buttons/button";
+@import "../../components/Header/header";
 @import "../../components/NavBar/navBar";
 @import "../../components/Footer/footer";
 
@@ -28,3 +28,10 @@
 @import "../../components/ServicesPage/SectionServices/_sectionServices";
 @import "../../components/ServicesPage/SectionTeam/Composition/composition";
 @import "../../components/ServicesPage/SectionTeam/sectionTeam";
+
+//Profile page styles
+@import "../../components/ProfilePage/profilePage";
+@import "../../components/ProfilePage/Profile/profile";
+
+//Service page styles
+@import "../../components/ServicePage/servicePage";
