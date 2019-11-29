@@ -23,11 +23,11 @@ const registerValidation = data => {
 const loginValidation = data => {
   const schema = Joi.object({
     login: Joi.string()
-      .min(6)
+      .min(4)
       .max(40)
       .required(),
     password: Joi.string()
-      .min(6)
+      .min(4)
       .max(1024)
       .required()
   });

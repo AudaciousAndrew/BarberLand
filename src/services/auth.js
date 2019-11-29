@@ -10,7 +10,7 @@ export default class AuthService {
       password: "required|string|min:4|max:255|confirmed"
     };
     const messages = {
-      min: "Minimum 6 characters required",
+      min: "Minimum 4 characters required",
       string: "Wrong string format",
       required: "The {{ field }} is required",
       "email.email": "The email is invalid",
@@ -29,9 +29,41 @@ export default class AuthService {
       return response;
     } catch (errors) {
       const formatedErrors = {};
-      if (errors.response.status === 400) {
+      if (errors.response) {
         let fieldName = Object.keys(errors.response.data)[0];
         formatedErrors[fieldName] = errors.response.data[fieldName];
+      } else {
+        errors.forEach(error => (formatedErrors[error.field] = error.message));
+      }
+      return Promise.reject(formatedErrors);
+    }
+  }
+
+  async loginUser(data) {
+    const rules = {
+      login: "required|string|min:4|max:40",
+      password: "required|string|min:4|max:255"
+    };
+    const messages = {
+      min: "Minimum 4 characters required",
+      string: "Wrong string format",
+      required: "The {{ field }} is required",
+    };
+
+    try {
+      await validateAll(data, rules, messages);
+
+      const response = await axios.post(`${config.apiUrl}/user/login`, {
+        login: data.login,
+        password: data.password
+      });
+
+      return response;
+    } catch (errors) {
+      const formatedErrors = {};
+      if (errors.response) {
+        let fieldName = Object.keys(errors.response.data)[0];
+        formatedErrors['login'] = errors.response.data[fieldName];
       } else {
         errors.forEach(error => (formatedErrors[error.field] = error.message));
       }

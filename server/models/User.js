@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const userSchema = new mongoose.Schema({
     login: {
         type: String,
-        min: 6,
+        min: 4,
         max: 40,
         required: true
     }, 
@@ -15,7 +15,7 @@ const userSchema = new mongoose.Schema({
     },
     password: {
         type: String,
-        min: 6,
+        min: 4,
         max: 1024,
         required: true
     },

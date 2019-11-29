@@ -51,7 +51,11 @@ class App extends React.Component {
           path="/login"
           render={props => (
             <SignPage>
-              <LoginForm {...props} />
+              <LoginForm
+                {...props}
+                loginUser={this.props.authService.loginUser}
+                setAuthUser={this.setAuthUser}
+              />
             </SignPage>
           )}
         />
