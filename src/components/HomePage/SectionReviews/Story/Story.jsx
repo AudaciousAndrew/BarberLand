@@ -16,7 +16,7 @@ function Story(props) {
           <h3 className="heading-tertiary u-margin-bottom-small">
             {props.title}
           </h3>
-          <p>{props.text}</p>
+          <p>{props.description}</p>
         </div>
       </div>
     </>

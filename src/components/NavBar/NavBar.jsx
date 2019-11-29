@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-function Navbar() {
+function Navbar({ authUser }) {
   return (
     <>
       <div className="nav-bar">
@@ -33,24 +33,41 @@ function Navbar() {
                 Services
               </NavLink>
             </li>
-            <li className="nav-bar__item">
-              <NavLink
-                className="nav-bar__link"
-                to="/login"
-                activeClassName="nav-bar__active"
-              >
-                Log In
-              </NavLink>
-            </li>
-            <li className="nav-bar__item">
-              <NavLink
-                className="nav-bar__link"
-                to="/register"
-                activeClassName="nav-bar__active"
-              >
-                Register
-              </NavLink>
-            </li>
+            {!authUser && (
+              <>
+                <li className="nav-bar__item">
+                  <NavLink
+                    className="nav-bar__link"
+                    to="/login"
+                    activeClassName="nav-bar__active"
+                  >
+                    Log In
+                  </NavLink>
+                </li>
+                <li className="nav-bar__item">
+                  <NavLink
+                    className="nav-bar__link"
+                    to="/register"
+                    activeClassName="nav-bar__active"
+                  >
+                    Register
+                  </NavLink>
+                </li>
+              </>
+            )}
+            {authUser && (
+              <>
+                <li className="nav-bar__item">
+                  <NavLink
+                    className="nav-bar__link"
+                    to="/register"
+                    activeClassName="nav-bar__active"
+                  >
+                    Profile
+                  </NavLink>
+                </li>
+              </>
+            )}
           </ul>
         </nav>
       </div>

@@ -3,7 +3,7 @@ import DatePicker from "react-datepicker";
 import ButtonAction from "../Buttons/ButtonAction/ButtonAction";
 import "react-datepicker/dist/react-datepicker.css";
 
-function ServicePage() {
+function SingleService() {
   const [startDate, setStartDate] = useState(new Date());
   return (
     <>
@@ -94,4 +94,4 @@ function ServicePage() {
   );
 }
 
-export default ServicePage;
+export default SingleService;

@@ -26,17 +26,20 @@ const userSchema = new mongoose.Schema({
     phone: {
         type: String,
         min: 6,
-        max: 20
+        max: 20,
+        default: "Not set."
     },
     firstname: {
         type: String,
         min: 1,
-        max: 40
+        max: 40,
+        default: "Not set."
     },
     lastname: {
         type: String,
         min: 1,
-        max: 40
+        max: 40,
+        default: "Not set."
     }
 })
 

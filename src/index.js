@@ -6,47 +6,81 @@ import Navbar from "./components/NavBar/NavBar";
 import Footer from "./components/Footer/Footer";
 import HomePage from "./components/HomePage/HomePage";
 import ServicesPage from "./components/ServicesPage/ServicesPage";
-import SignPage from "./components/SignPage/SignPage.jsx";
-import LoginForm from "./components/SignPage/LoginForm/LoginForm.jsx";
-import RegisterForm from "./components/SignPage/RegisterForm/RegisterForm.jsx";
+import SignPage from "./components/SignPage/SignPage";
+import LoginForm from "./components/SignPage/LoginForm/LoginForm";
+import RegisterForm from "./components/SignPage/RegisterForm/RegisterForm";
 import ScrollToTopRoute from "./utilities/ScrollToTopRoute";
-import ServicePage from "./components/ServicePage/ServicePage.jsx";
-import ProfilePage from "./components/ProfilePage/ProfilePage.jsx";
+import SingleService from "./components/SingleService/SingleService";
+import ProfilePage from "./components/ProfilePage/ProfilePage";
+import AuthService from "./services/auth";
 
-const App = withRouter(({ location }) => {
-  return (
-    <>
-      <Navbar />
-      <ScrollToTopRoute exact path="/" component={HomePage} />
-      <ScrollToTopRoute path="/services" component={ServicesPage} />
-      <ScrollToTopRoute path="/service" component={ServicePage} />
-      <ScrollToTopRoute path="/profile" component={ProfilePage} />
-      <Route
-        path="/login"
-        render={props => (
-          <SignPage>
-            <LoginForm />
-          </SignPage>
-        )}
-      />
-      <Route
-        path="/register"
-        render={props => (
-          <SignPage>
-            <RegisterForm />
-          </SignPage>
-        )}
-      />
-      {location.pathname !== "/login" && location.pathname !== "/register" && (
-        <Footer />
-      )}
-    </>
-  );
+class App extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      authUser: null
+    };
+  }
+
+  componentDidMount() {
+    const user = localStorage.getItem("user");
+
+    if (user) {
+      this.setState({
+        authUser: JSON.parse(user)
+      });
+    }
+  }
+
+  setAuthUser = authUser => {
+    this.setState({
+      authUser
+    });
+  };
+
+  render() {
+    const { location } = this.props;
+    return (
+      <>
+        <Navbar authUser={this.state.authUser} />
+        <ScrollToTopRoute exact path="/" component={HomePage} />
+        <ScrollToTopRoute path="/services" component={ServicesPage} />
+        <ScrollToTopRoute path="/service" component={SingleService} />
+        <ScrollToTopRoute path="/profile" component={ProfilePage} />
+        <Route
+          path="/login"
+          render={props => (
+            <SignPage>
+              <LoginForm {...props} />
+            </SignPage>
+          )}
+        />
+        <Route
+          path="/register"
+          render={props => (
+            <SignPage>
+              <RegisterForm
+                {...props}
+                registerUser={this.props.authService.registerUser}
+                setAuthUser={this.setAuthUser}
+              />
+            </SignPage>
+          )}
+        />
+        {location.pathname !== "/login" &&
+          location.pathname !== "/register" && <Footer />}
+      </>
+    );
+  }
+}
+
+const Main = withRouter(props => {
+  return <App authService={new AuthService()} {...props} />;
 });
 
 ReactDOM.render(
   <BrowserRouter>
-    <App />
+    <Main />
   </BrowserRouter>,
   document.getElementById("root")
 );
