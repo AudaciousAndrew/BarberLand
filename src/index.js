@@ -10,9 +10,10 @@ import SignPage from "./components/SignPage/SignPage";
 import LoginForm from "./components/SignPage/LoginForm/LoginForm";
 import RegisterForm from "./components/SignPage/RegisterForm/RegisterForm";
 import ScrollToTopRoute from "./utilities/ScrollToTopRoute";
-import SingleService from "./components/SingleService/SingleService";
+import SingleServiceContainer from "./components/SingleService/SingleServiceContainer";
 import ProfilePage from "./components/ProfilePage/ProfilePage";
 import AuthService from "./services/auth";
+import ServicesService from "./services/services";
 
 class App extends React.Component {
   constructor() {
@@ -47,10 +48,18 @@ class App extends React.Component {
     const { location } = this.props;
     return (
       <>
-        <Navbar authUser={this.state.authUser} setAuthUser={this.setAuthUser}/>
+        <Navbar authUser={this.state.authUser} setAuthUser={this.setAuthUser} />
         <ScrollToTopRoute exact path="/" component={HomePage} />
         <ScrollToTopRoute path="/services" component={ServicesPage} />
-        <ScrollToTopRoute path="/service" component={SingleService} />
+        <Route
+          path="/service/:slug"
+          render={props => (
+            <SingleServiceContainer
+              {...props}
+              getService={this.props.servicesService.getService}
+            />
+          )}
+        />
         <ScrollToTopRoute path="/profile" component={ProfilePage} />
         <Route
           path="/login"
@@ -84,7 +93,13 @@ class App extends React.Component {
 }
 
 const Main = withRouter(props => {
-  return <App authService={new AuthService()} {...props} />;
+  return (
+    <App
+      authService={new AuthService()}
+      servicesService={new ServicesService()}
+      {...props}
+    />
+  );
 });
 
 ReactDOM.render(

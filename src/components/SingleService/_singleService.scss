@@ -35,7 +35,7 @@
 
   &__input {
     @include input-styles;
-    // width: 100%;
+    width: 100%;
 
     &:not(:last-child) {
       margin-right: 2rem;

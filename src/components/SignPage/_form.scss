@@ -3,7 +3,7 @@
   border-radius: 0.3rem;
   -webkit-border-radius: 0.3rem;
   box-shadow: 0 1rem 2rem rgba($color-black, 0.8);
-  padding: 3rem;
+  padding: 1rem 3rem;
   font-size: $default-font-size;
   animation: moveInRight 0.5s ease-in;
   animation-fill-mode: backwards;
@@ -58,7 +58,7 @@
   &__group {
     color: $color-grey-dark-3;
     &:not(:last-child) {
-      margin-bottom: 1rem;
+      margin-bottom: 0.5rem;
     }
   }
 }

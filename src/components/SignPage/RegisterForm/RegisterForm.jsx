@@ -40,7 +40,7 @@ class RegisterForm extends React.Component {
     return (
       <>
         <form className="form">
-          <div className="u-center-text u-margin-bottom-small">
+          <div className="u-center-text u-margin-bottom-super-small">
             <h2 className="heading-tertiary">Register</h2>
           </div>
           <div className="form__group">

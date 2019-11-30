@@ -10,6 +10,8 @@ dotenv.config();
 const authRoute = require("./routes/auth");
 const profileRoute = require("./routes/profile");
 const storiesRoute = require("./routes/stories");
+const serviceCardsRoute = require("./routes/serviceCards");
+const servicesRoute = require("./routes/services");
 
 //Connect to DB
 mongoose.connect(
@@ -29,6 +31,8 @@ app.use(cors(corsOptions));
 
 //Route Middlewares
 app.use("/api/user", authRoute);
+app.use("/api/service", servicesRoute);
+app.use("/api/services/cards", serviceCardsRoute);
 app.use("/api/profile", profileRoute);
 app.use("/api/stories", storiesRoute);
 
