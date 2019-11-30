@@ -11,8 +11,11 @@
 //Reusable components
 @import "../../components/Buttons/button";
 @import "../../components/Header/header";
-@import "../../components/NavBar/navBar";
 @import "../../components/Footer/footer";
+
+//Navbar styles
+@import "../../components/NavBar/navBar";
+@import "../../components/NavBar/UserMenu/userMenu";
 
 //Home page styles
 @import "../../components/HomePage/SectionReviews/sectionReviews";

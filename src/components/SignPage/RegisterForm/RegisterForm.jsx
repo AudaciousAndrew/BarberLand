@@ -31,10 +31,6 @@ class RegisterForm extends React.Component {
         })
       );
       this.props.setAuthUser(response.data);
-      this.setState({
-        errors: []
-      });
-      this.props.history.push("/");
     } catch (errors) {
       this.setState({ errors });
     }

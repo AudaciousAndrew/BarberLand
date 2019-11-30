@@ -1,7 +1,8 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import UserMenu from "./UserMenu/UserMenu";
 
-function Navbar({ authUser }) {
+function Navbar({ authUser , setAuthUser }) {
   return (
     <>
       <div className="nav-bar">
@@ -55,19 +56,7 @@ function Navbar({ authUser }) {
                 </li>
               </>
             )}
-            {authUser && (
-              <>
-                <li className="nav-bar__item">
-                  <NavLink
-                    className="nav-bar__link"
-                    to="/register"
-                    activeClassName="nav-bar__active"
-                  >
-                    Profile
-                  </NavLink>
-                </li>
-              </>
-            )}
+            { authUser && <UserMenu setAuthUser={setAuthUser}/> }
           </ul>
         </nav>
       </div>

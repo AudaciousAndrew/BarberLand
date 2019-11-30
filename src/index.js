@@ -33,16 +33,21 @@ class App extends React.Component {
   }
 
   setAuthUser = authUser => {
-    this.setState({
-      authUser
-    });
+    this.setState(
+      {
+        authUser
+      },
+      () => {
+        this.props.history.push("/");
+      }
+    );
   };
 
   render() {
     const { location } = this.props;
     return (
       <>
-        <Navbar authUser={this.state.authUser} />
+        <Navbar authUser={this.state.authUser} setAuthUser={this.setAuthUser}/>
         <ScrollToTopRoute exact path="/" component={HomePage} />
         <ScrollToTopRoute path="/services" component={ServicesPage} />
         <ScrollToTopRoute path="/service" component={SingleService} />

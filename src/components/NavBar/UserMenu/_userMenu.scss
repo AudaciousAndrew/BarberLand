@@ -1,0 +1,42 @@
+.user-menu {
+  position: relative;
+  cursor: pointer;
+  transition: all 0.5s;
+
+  &__user {
+    font-size: 2.2rem;
+    margin-right: 1rem;
+  }
+  &__header {
+    &:hover {
+      color: $color-white-2;
+    }
+  }
+  &__list {
+    position: absolute;
+    background-color: rgba($color-black, 0.75);
+    top: 4.4rem;
+    left: -5.4rem;
+    padding: 1rem 2rem;
+    text-align: center;
+  }
+  &__item {
+    &:not(:last-child) {
+      margin-bottom: 1rem;
+    }
+    &:hover {
+      color: $color-white-2;
+    }
+  }
+  &__text {
+    margin-left: 1rem;
+    font-family: "Poppins";
+    font-weight: 500;
+    font-size: 1.5rem;
+  }
+
+  &__link {
+    text-decoration: none;
+    color: inherit;
+  }
+}
