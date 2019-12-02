@@ -1,8 +1,18 @@
 const router = require("express").Router();
 const verify = require("./verifyToken");
+const User = require("../models/User");
 
-router.get("/edit" , verify , async (req , res) => {
-    res.send("profile edite mode");
+router.post("/update", verify, async (req, res) => {
+  const id = req.body._id;
+  delete req.body._id;
+  User.updateOne({ _id: id }, req.body, function(err, user) {
+    if (err) {
+      console.log(err);
+      res.send("Error in update user");
+    } else {
+      res.json(user);
+    }
+  });
 });
 
 module.exports = router;

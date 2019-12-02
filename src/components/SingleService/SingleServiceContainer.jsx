@@ -18,7 +18,7 @@ class SingleServiceContainer extends React.Component {
   render() {
     return (
       <>
-        <SingleService service={this.state.service}/>
+        <SingleService service={this.state.service} authUser={this.props.authUser}/>
       </>
     );
   }

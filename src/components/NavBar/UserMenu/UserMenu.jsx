@@ -2,8 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 class UserMenu extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       isShown: false
     };
@@ -31,10 +31,9 @@ class UserMenu extends React.Component {
     );
   };
 
-  handleLogOut = () => {
-    localStorage.removeItem("user");
-    this.props.setAuthUser(null);
-  };
+  componentWillUnmount() {
+    document.removeEventListener("click", this.handleClickOutside);
+  }
 
   render() {
     return (
@@ -56,7 +55,10 @@ class UserMenu extends React.Component {
                 </i>
               </Link>
             </div>
-            <div className="user-menu__item" onClick={this.handleLogOut}>
+            <div
+              className="user-menu__item"
+              onClick={this.props.removeAuthUser}
+            >
               <i className="fas fa-sign-out-alt">
                 <span className="user-menu__text">Log out</span>
               </i>

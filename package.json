@@ -12,6 +12,7 @@
     "indicative": "^7.2.3",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.7.12",
+    "noty": "^3.2.0-beta",
     "react": "^16.11.0",
     "react-datepicker": "^2.10.1",
     "react-dom": "^16.11.0",

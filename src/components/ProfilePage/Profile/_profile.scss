@@ -1,88 +1,132 @@
-
 .profile {
-    width: 80%;
-    margin: auto;
-    display: flex;
-    justify-content: space-between;
-    font-size: $default-font-size;
-  
-    & > * {
-      padding-right: 2rem;
-      width: 33.333%;
-    }
-  
-    &__caption {
-      padding: 0 2rem;
-      border-bottom: 0.1rem solid $color-grey-dark-2;
+  width: 80%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  font-size: $default-font-size;
+
+  & > * {
+    padding-right: 2rem;
+    width: 33.333%;
+  }
+
+  &__caption {
+    padding: 0 2rem;
+    border-bottom: 0.1rem solid $color-grey-dark-2;
+    margin-bottom: 2rem;
+  }
+
+  &__container {
+    padding: 0 2rem;
+
+    .btn-square:not(:last-child) {
       margin-bottom: 2rem;
     }
-  
-    &__container {
-      padding: 0 2rem;
+  }
 
-      .btn-square:not(:last-child) {
-        margin-bottom: 2rem;
-      }
+  &__subscription {
+    background-color: $color-grey-dark-4;
+    border-radius: 0.3rem;
+    display: flex;
+    font-size: 1.3rem;
+    color: $color-white-2;
+    justify-content: space-between;
+    font-size: $default-font-size;
+    text-align: center;
+    overflow: hidden;
+
+    &:not(:last-child) {
+      margin-bottom: 2rem;
     }
-  
-    &__subscription {
-      background-color: $color-grey-dark-4;
-      border-radius: 0.3rem;
-      display: flex;
-      font-size: 1.3rem;
-      color: $color-white-2;
-      justify-content: space-between;
-      font-size: $default-font-size;
-      text-align: center;
-  
-      &:not(:last-child) {
-        margin-bottom: 2rem;
-      }
-  
-      &:hover {
-        box-shadow: 0 1rem 2rem rgba($color-black, 0.4);
-        cursor: pointer;
-      }
-    }
-  
-    &__sub-date {
-      padding: 0 1.5rem;
-      height: 3rem;
-    }
-  
-    &__sub-text {
-      display: inline-block;
-      padding: 0 2rem;
-    }
-  
-    &__sub-remove {
-      display: inline-block;
-      background-color: $color-red-1;
-      width: 3rem;
-      height: 3rem;
-      border-bottom-left-radius: 1rem;
-      color: $color-white;
-      font-size: $default-font-size;
-      &:hover {
-        color: $color-white-2;
-        background-color: $color-red-2;
-      }
-  
-      &:active {
-        color: $color-white-3;
-        background-color: $color-red-3;
-      }
-    }
-  
-    &__list {
-      list-style: none;
-      padding: 0 2rem;
-    }
-  
-    &__item-title {
-      font-size: inherit;
-      font-weight: 100;
-      font-variant: small-caps;
+
+    &:hover {
+      box-shadow: 0 1rem 2rem rgba($color-black, 0.4);
+      cursor: pointer;
     }
   }
-  
+
+  &__sub-date {
+    padding: 0 1.5rem;
+    height: 3rem;
+  }
+
+  &__sub-text {
+    display: inline-block;
+    padding: 0 2rem;
+  }
+
+  &__sub-remove {
+    display: inline-block;
+    background-color: $color-red-1;
+    width: 3rem;
+    height: 3rem;
+    border-bottom-left-radius: 1rem;
+    color: $color-white;
+    font-size: $default-font-size;
+    &:hover {
+      color: $color-white-2;
+      background-color: $color-red-2;
+    }
+
+    &:active {
+      color: $color-white-3;
+      background-color: $color-red-3;
+    }
+  }
+
+  &__list {
+    list-style: none;
+    padding: 0 2rem;
+  }
+
+  &__item {
+    &:not(:last-child) {
+      margin-bottom: 1rem;
+    }
+  }
+
+  &__input-group {
+    width: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  &__input-field {
+    width: calc(100% - 42.73px);
+    display: inline-block;
+    padding: 1rem;
+    border: none;
+    background-color: #e0e0e0;
+    height: 40px;
+    &:focus {
+      outline: none !important;
+      border: 1px solid $color-grey-dark-3;
+      box-shadow: 0 0.5rem 1rem rgba($color-black , 0.15);
+    }
+  }
+
+  &__input-icon {
+    font-size: 2rem;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    background-color: $color-grey-dark-3;
+    color: $color-grey-light-1;
+    cursor: pointer;
+    &:hover {
+      background-color: $color-grey-dark-4;
+      color: $color-grey-light-2;
+    }
+    &:active {
+      background-color: $color-grey-dark-5;
+      color: $color-grey-dark;
+    }
+  }
+
+  &__item-title {
+    font-size: inherit;
+    font-weight: 100;
+    font-variant: small-caps;
+  }
+}

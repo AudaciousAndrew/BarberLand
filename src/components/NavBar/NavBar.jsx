@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import UserMenu from "./UserMenu/UserMenu";
 
-function Navbar({ authUser , setAuthUser }) {
+function Navbar({ authUser, removeAuthUser }) {
   return (
     <>
       <div className="nav-bar">
@@ -56,7 +56,7 @@ function Navbar({ authUser , setAuthUser }) {
                 </li>
               </>
             )}
-            { authUser && <UserMenu setAuthUser={setAuthUser}/> }
+            {authUser && <UserMenu removeAuthUser={removeAuthUser} />}
           </ul>
         </nav>
       </div>

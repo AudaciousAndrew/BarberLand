@@ -61,7 +61,7 @@ class LoginForm extends React.Component {
             </label>
           </div>
           <div className="form__group">
-           {this.state.errors["password"] && (
+            {this.state.errors["password"] && (
               <small className="error">{this.state.errors["password"]}</small>
             )}
             <input

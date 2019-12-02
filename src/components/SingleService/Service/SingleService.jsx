@@ -3,8 +3,8 @@ import DatePicker from "react-datepicker";
 import ButtonAction from "../../Buttons/ButtonAction/ButtonAction";
 import "react-datepicker/dist/react-datepicker.css";
 
-function SingleService({ service }) {
-  window.scrollTo(0,0);
+function SingleService({ service, authUser }) {
+  window.scrollTo(0, 0);
   const [startDate, setStartDate] = useState(new Date());
   return (
     <>
@@ -77,10 +77,12 @@ function SingleService({ service }) {
                   text="Sign up for the procedure"
                   className="btn-square btn-square--dark-grey"
                 />
-                <ButtonAction
-                  text="Unsubscribe"
-                  className="btn-square btn-square--dark-grey"
-                />
+                {authUser && (
+                  <ButtonAction
+                    text="Unsubscribe"
+                    className="btn-square btn-square--dark-grey"
+                  />
+                )}
               </div>
             </div>
           </div>

@@ -20,7 +20,7 @@ class RegisterForm extends React.Component {
     });
   };
 
-  handleOnClick = async () => {
+  handleSubmit = async () => {
     try {
       const response = await this.props.registerUser(this.state);
       localStorage.setItem(
@@ -112,7 +112,7 @@ class RegisterForm extends React.Component {
             <ButtonAction
               className="btn-square btn-square--dark-grey btn-square--w-100"
               text="Submit"
-              handleClick={this.handleOnClick}
+              handleClick={this.handleSubmit}
             />
           </div>
         </form>
