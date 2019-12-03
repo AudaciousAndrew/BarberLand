@@ -22,6 +22,7 @@ class RegisterForm extends React.Component {
 
   handleSubmit = async () => {
     try {
+      console.log("test");
       const response = await this.props.registerUser(this.state);
       localStorage.setItem(
         "user",
@@ -33,6 +34,7 @@ class RegisterForm extends React.Component {
       this.props.setAuthUser(response.data);
     } catch (errors) {
       this.setState({ errors });
+      console.log(errors);
     }
   };
 

@@ -5,7 +5,7 @@ const User = require("../models/User");
 router.post("/update", verify, async (req, res) => {
   const id = req.body._id;
   delete req.body._id;
-  User.updateOne({ _id: id }, req.body, function(err, user) {
+  await User.updateOne({ _id: id }, req.body, function(err, user) {
     if (err) {
       console.log(err);
       res.send("Error in update user");

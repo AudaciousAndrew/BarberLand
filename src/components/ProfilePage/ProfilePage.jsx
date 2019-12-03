@@ -1,8 +1,7 @@
 import React from "react";
 import Header from "../../components/Header/Header";
 import Profile from "./Profile/Profile";
-import config from "../../config/configuration.js";
-import axios from "axios";
+
 
 class ProfilePage extends React.Component {
   constructor(props) {

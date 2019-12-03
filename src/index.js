@@ -23,6 +23,7 @@ import AuthService from "./services/auth";
 import ServicesService from "./services/services";
 import NotificationService from "./services/notifications";
 import ProfileService from "./services/profile";
+import SubscriptionsService from "./services/subscriptions";
 
 class App extends React.Component {
   constructor() {
@@ -75,8 +76,11 @@ class App extends React.Component {
           render={props => (
             <SingleServiceContainer
               {...props}
+              subscribe={this.props.subscriptionsService.subscribe}
+              unsubscribe={this.props.subscriptionsService.unsubscribe}
               authUser={this.state.authUser}
               getService={this.props.servicesService.getService}
+              notyService={this.props.notyService}
             />
           )}
         />
@@ -126,7 +130,7 @@ class App extends React.Component {
           child={RegisterForm}
           isAuth={this.state.authUser !== null}
           props={{
-            loginUser: this.props.authService.registerUser,
+            registerUser: this.props.authService.registerUser,
             setAuthUser: this.setAuthUser
           }}
         />
@@ -152,6 +156,7 @@ class App extends React.Component {
 const Main = withRouter(props => {
   return (
     <App
+      subscriptionsService={new SubscriptionsService()}
       authService={new AuthService()}
       servicesService={new ServicesService()}
       notyService={new NotificationService()}
