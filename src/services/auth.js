@@ -10,11 +10,11 @@ export default class AuthService {
       password: "required|string|min:4|max:255|confirmed"
     };
     const messages = {
-      min: "Minimum 4 characters required",
-      string: "Wrong string format",
-      required: "The {{ field }} is required",
-      "email.email": "The email is invalid",
-      "password.confirmed": "The passwords doesn't match"
+      min: "The {{ field }} requires minimum 4 characters.",
+      string: "Wrong string format.",
+      required: "The {{ field }} is required.",
+      "email.email": "The email is invalid.",
+      "password.confirmed": "The passwords doesn't match."
     };
 
     try {
@@ -28,14 +28,12 @@ export default class AuthService {
 
       return response;
     } catch (errors) {
-      const formatedErrors = {};
       if (errors.response) {
-        let fieldName = Object.keys(errors.response.data)[0];
-        formatedErrors[fieldName] = errors.response.data[fieldName];
+        this.notyService.error(errors.response.data.error);
       } else {
-        errors.forEach(error => (formatedErrors[error.field] = error.message));
+        errors.forEach(error => this.notyService.error(error.message));
       }
-      return Promise.reject(formatedErrors);
+      return Promise.reject();
     }
   }
 
@@ -45,9 +43,9 @@ export default class AuthService {
       password: "required|string|min:4|max:255"
     };
     const messages = {
-      min: "Minimum 4 characters required",
-      string: "Wrong string format",
-      required: "The {{ field }} is required",
+      min: "The {{ field }} requires minimum 4 characters.",
+      string: "Wrong string format.",
+      required: "The {{ field }} is required.",
     };
 
     try {
@@ -60,14 +58,12 @@ export default class AuthService {
 
       return response;
     } catch (errors) {
-      const formatedErrors = {};
       if (errors.response) {
-        let fieldName = Object.keys(errors.response.data)[0];
-        formatedErrors['login'] = errors.response.data[fieldName];
+        this.notyService.error(errors.response.data.error);
       } else {
-        errors.forEach(error => (formatedErrors[error.field] = error.message));
+        errors.forEach(error => this.notyService.error(error.message));
       }
-      return Promise.reject(formatedErrors);
+      return Promise.reject();
     }
   }
 }

@@ -1,6 +1,7 @@
 import React from "react";
 import SingleService from "./Service/SingleService";
 
+
 class SingleServiceContainer extends React.Component {
   constructor(props) {
     super(props);
@@ -56,7 +57,8 @@ class SingleServiceContainer extends React.Component {
   }
 
   handleUnsub = () => {
-    this.props.unsubscribe(this.props.authUser._id,this.state.service.title);
+    const token = JSON.parse(localStorage.getItem("user")).token;
+    this.props.unsubscribe(this.props.authUser._id,this.state.service.title, token);
   }
 
   render() {

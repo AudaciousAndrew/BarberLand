@@ -1,13 +1,8 @@
 import axios from "axios";
 import config from "../config/configuration";
-import NotificationService from "./notifications";
 
 export default class ProfileService {
 
-  constructor() {
-    this.notyService = new NotificationService();
-  }
-  
   async updateData(data) {
     try {
       await axios.post(`${config.apiUrl}/profile/update`, data.user, {

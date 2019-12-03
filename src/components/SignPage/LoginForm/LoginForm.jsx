@@ -8,8 +8,7 @@ class LoginForm extends React.Component {
 
     this.state = {
       login: "",
-      password: "",
-      errors: {}
+      password: ""
     };
   }
 
@@ -32,7 +31,7 @@ class LoginForm extends React.Component {
       );
       this.props.setAuthUser(response.data);
     } catch (errors) {
-      this.setState({ errors });
+      this.props.notyService.error(errors);
     }
   };
 
@@ -44,9 +43,6 @@ class LoginForm extends React.Component {
             <h2 className="heading-tertiary">Login</h2>
           </div>
           <div className="form__group">
-            {this.state.errors["login"] && (
-              <small className="error">{this.state.errors["login"]}</small>
-            )}
             <input
               type="text"
               className="form__input"
@@ -61,9 +57,6 @@ class LoginForm extends React.Component {
             </label>
           </div>
           <div className="form__group">
-            {this.state.errors["password"] && (
-              <small className="error">{this.state.errors["password"]}</small>
-            )}
             <input
               type="password"
               className="form__input"

@@ -91,7 +91,10 @@ class App extends React.Component {
           props={{
             authUser: this.state.authUser,
             notyService: this.props.notyService,
-            updateData: this.props.profileService.updateData
+            updateData: this.props.profileService.updateData,
+            removeAll: this.props.subscriptionsService.removeAll,
+            removeOne: this.props.subscriptionsService.removeOne,
+            getAll: this.props.subscriptionsService.getAll
           }}
           isAuth={this.state.authUser !== null}
         />
@@ -109,21 +112,10 @@ class App extends React.Component {
           isAuth={this.state.authUser !== null}
           props={{
             loginUser: this.props.authService.loginUser,
-            setAuthUser: this.setAuthUser
+            setAuthUser: this.setAuthUser,
+            notyService: this.props.notyService
           }}
         />
-        {/* <Route
-          path="/login"
-          render={props => (
-            <SignPage>
-              <LoginForm
-                {...props}
-                loginUser={this.props.authService.loginUser}
-                setAuthUser={this.setAuthUser}
-              />
-            </SignPage>
-          )}
-        /> */}
         <AuthRedirect 
           path="/register"
           component={SignPage}
@@ -131,21 +123,10 @@ class App extends React.Component {
           isAuth={this.state.authUser !== null}
           props={{
             registerUser: this.props.authService.registerUser,
-            setAuthUser: this.setAuthUser
+            setAuthUser: this.setAuthUser,
+            notyService: this.props.notyService
           }}
         />
-        {/* <Route
-          path="/register"
-          render={props => (
-            <SignPage>
-              <RegisterForm
-                {...props}
-                registerUser={this.props.authService.registerUser}
-                setAuthUser={this.setAuthUser}
-              />
-            </SignPage>
-          )}
-        /> */}
         {location.pathname !== "/login" &&
           location.pathname !== "/register" && <Footer />}
       </>

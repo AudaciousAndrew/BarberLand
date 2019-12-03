@@ -1,0 +1,48 @@
+.subscription {
+  background-color: $color-grey-dark-4;
+  border-radius: 0.3rem;
+  display: flex;
+  font-size: 1.3rem;
+  color: $color-white-2;
+  justify-content: space-between;
+  font-size: $default-font-size;
+  text-align: center;
+  overflow: hidden;
+
+  &:not(:last-child) {
+    margin-bottom: 2rem;
+  }
+
+  &:hover {
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.4);
+    cursor: pointer;
+  }
+
+  &__date {
+    height: 3rem;
+  }
+
+  &__text {
+    display: inline-block;
+    padding: 0 2rem;
+  }
+
+  &__remove {
+    display: inline-block;
+    background-color: $color-red-1;
+    width: 3rem;
+    height: 3rem;
+    border-bottom-left-radius: 1rem;
+    color: $color-white;
+    font-size: $default-font-size;
+    &:hover {
+      color: $color-white-2;
+      background-color: $color-red-2;
+    }
+
+    &:active {
+      color: $color-white-3;
+      background-color: $color-red-3;
+    }
+  }
+}

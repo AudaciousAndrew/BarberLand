@@ -1,11 +1,14 @@
 import React from "react";
 import ButtonAction from "../../Buttons/ButtonAction/ButtonAction";
+import Subscription from "./Subscription/Subscription";
 
 function Profile({
   handleInputChange,
   handleEditInput,
   handleOnBlur,
   handleProfileSubmit,
+  handleRemoveAll,
+  handleRemoveOne,
   firstnameRef,
   lastnameRef,
   phoneRef,
@@ -105,30 +108,22 @@ function Profile({
               Subscriptions
             </h4>
             <div className="profile__container">
-              <div className="profile__subscription">
-                <span className="profile__sub-date">02.03.19 23:23</span>
-                <span className="profile__sub-text">
-                  Get a unique hairstyle
-                </span>
-                <span className="profile__sub-remove">x</span>
-              </div>
-              <div className="profile__subscription">
-                <span className="profile__sub-date">02.03.19 23:23</span>
-                <span className="profile__sub-text">Make a manly beard</span>
-                <span className="profile__sub-remove">x</span>
-              </div>
-              <div className="profile__subscription">
-                <span className="profile__sub-date">02.03.19 23:23</span>
-                <span className="profile__sub-text">
-                  Hot straight razor shave
-                </span>
-                <span className="profile__sub-remove">x</span>
-              </div>
-              <div className="profile__subscription">
-                <span className="profile__sub-date">02.03.19 23:23</span>
-                <span className="profile__sub-text">Test service subsc</span>
-                <span className="profile__sub-remove">x</span>
-              </div>
+              {state.subscriptions.length > 0 ? (
+                state.subscriptions.map(element => {
+                  return (
+                    <Subscription
+                      key={element._id}
+                      date={element.date}
+                      name={element.type}
+                      onClose={() => handleRemoveOne(element._id)}
+                    />
+                  );
+                })
+              ) : (
+                <p className="paragraph u-center-text">
+                  <i>No subscriptions found.</i>
+                </p>
+              )}
             </div>
           </div>
           <div>
@@ -139,6 +134,7 @@ function Profile({
               <ButtonAction
                 className="btn-square btn-square--dark-grey btn-square--w-100"
                 text="Remove all subscriptions"
+                handleClick={handleRemoveAll}
               />
             </div>
           </div>

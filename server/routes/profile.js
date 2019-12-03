@@ -7,7 +7,6 @@ router.post("/update", verify, async (req, res) => {
   delete req.body._id;
   await User.updateOne({ _id: id }, req.body, function(err, user) {
     if (err) {
-      console.log(err);
       res.send("Error in update user");
     } else {
       res.json(user);

@@ -9,8 +9,7 @@ class RegisterForm extends React.Component {
       login: "",
       email: "",
       password: "",
-      password_confirmation: "",
-      errors: {}
+      password_confirmation: ""
     };
   }
 
@@ -22,7 +21,6 @@ class RegisterForm extends React.Component {
 
   handleSubmit = async () => {
     try {
-      console.log("test");
       const response = await this.props.registerUser(this.state);
       localStorage.setItem(
         "user",
@@ -33,8 +31,7 @@ class RegisterForm extends React.Component {
       );
       this.props.setAuthUser(response.data);
     } catch (errors) {
-      this.setState({ errors });
-      console.log(errors);
+      this.props.notyService.error(errors);
     }
   };
 
@@ -42,13 +39,10 @@ class RegisterForm extends React.Component {
     return (
       <>
         <form className="form">
-          <div className="u-center-text u-margin-bottom-super-small">
+          <div className="u-center-text u-margin-bottom-small">
             <h2 className="heading-tertiary">Register</h2>
           </div>
           <div className="form__group">
-            {this.state.errors["login"] && (
-              <small className="error">{this.state.errors["login"]}</small>
-            )}
             <input
               type="text"
               className="form__input"
@@ -63,9 +57,6 @@ class RegisterForm extends React.Component {
             </label>
           </div>
           <div className="form__group">
-            {this.state.errors["email"] && (
-              <small className="error">{this.state.errors["email"]}</small>
-            )}
             <input
               type="email"
               className="form__input"
@@ -80,9 +71,6 @@ class RegisterForm extends React.Component {
             </label>
           </div>
           <div className="form__group">
-            {this.state.errors["password"] && (
-              <small className="error">{this.state.errors["password"]}</small>
-            )}
             <input
               type="password"
               className="form__input"

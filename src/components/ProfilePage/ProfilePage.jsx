@@ -2,7 +2,6 @@ import React from "react";
 import Header from "../../components/Header/Header";
 import Profile from "./Profile/Profile";
 
-
 class ProfilePage extends React.Component {
   constructor(props) {
     super(props);
@@ -18,14 +17,19 @@ class ProfilePage extends React.Component {
     this.phoneRef = React.createRef();
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     window.scrollTo(0, 0);
-    const user = JSON.parse(localStorage.getItem("user")).user;
+    const userData = JSON.parse(localStorage.getItem("user"));
+    const subscriptions = await this.props.getAll(
+      userData.user._id,
+      userData.token
+    );
     this.setState({
-      firstname: user.firstname,
-      lastname: user.lastname,
-      phone: user.phone,
-      date: user.date
+      firstname: userData.user.firstname,
+      lastname: userData.user.lastname,
+      phone: userData.user.phone,
+      date: userData.user.date,
+      subscriptions
     });
   }
 
@@ -44,12 +48,27 @@ class ProfilePage extends React.Component {
     ref.current.disabled = true;
   };
 
-  handleProfileSubmit = () => {
+  handleProfileSubmit = async () => {
     const updatedUser = JSON.parse(localStorage.getItem("user"));
     updatedUser.user.firstname = this.state.firstname;
     updatedUser.user.lastname = this.state.lastname;
     updatedUser.user.phone = this.state.phone;
-    this.props.updateData(updatedUser);
+    await this.props.updateData(updatedUser);
+  };
+
+  handleRemoveAll = async () => {
+    const userData = JSON.parse(localStorage.getItem("user"));
+    await this.props.removeAll(userData.user._id, userData.token);
+    this.setState({ subscriptions: [] });
+  };
+
+  handleRemoveOne = async subId => {
+    const userData = JSON.parse(localStorage.getItem("user"));
+    const subscriptions = this.state.subscriptions.filter(
+      element => element._id !== subId
+    );
+    await this.props.removeOne(userData.user._id, userData.token, subId);
+    this.setState({ subscriptions });
   };
 
   render() {
@@ -66,6 +85,8 @@ class ProfilePage extends React.Component {
             lastnameRef={this.lastnameRef}
             phoneRef={this.phoneRef}
             state={this.state}
+            handleRemoveOne={this.handleRemoveOne}
+            handleRemoveAll={this.handleRemoveAll}
             handleProfileSubmit={this.handleProfileSubmit}
             handleOnBlur={this.handleOnBlur}
             handleEditInput={this.handleEditInput}

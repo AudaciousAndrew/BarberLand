@@ -16,7 +16,7 @@ export default class NotificationService {
       text: message,
       type: "error",
       layout: "topRight",
-      timeout: 3000,
+      timeout: 5000,
       closeWith: ["button"]
     }).show();
   }
