@@ -12,15 +12,13 @@ const AuthRedirect = ({
     <Route
       path={path}
       render={routerProps => {
-        console.log(isAuth);
         if (!isAuth) {
           return (
             <Component>
-              <ChildComponent {...routerProps} {...props}/>
+              <ChildComponent {...routerProps} {...props} />
             </Component>
           );
         }
-
         return <Redirect to="/" />;
       }}
     />

@@ -30,8 +30,11 @@ class LoginForm extends React.Component {
         })
       );
       this.props.setAuthUser(response.data);
+      this.props.history.push("/");
     } catch (errors) {
-      this.props.notyService.error(errors);
+      //console.log("from login form");
+      // console.error(errors);
+      //this.props.notyService.error(errors);
     }
   };
 

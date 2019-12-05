@@ -44,14 +44,9 @@ class App extends React.Component {
   }
 
   setAuthUser = authUser => {
-    this.setState(
-      {
-        authUser
-      },
-      () => {
-        this.props.history.push("/");
-      }
-    );
+    this.setState({
+      authUser
+    });
   };
 
   removeAuthUser = () => {
@@ -84,12 +79,11 @@ class App extends React.Component {
             />
           )}
         />
-        {/* WHY mannualy /profile not working?? */}
         <NotAuthRedirect
           path="/profile"
           component={ProfilePage}
           props={{
-            authUser: this.state.authUser,
+            setAuthUser: this.setAuthUser,
             notyService: this.props.notyService,
             updateData: this.props.profileService.updateData,
             removeAll: this.props.subscriptionsService.removeAll,
@@ -98,14 +92,7 @@ class App extends React.Component {
           }}
           isAuth={this.state.authUser !== null}
         />
-        {/* <Route
-          path="/profile"
-          render={props => (
-            <ProfilePage {...props} authUser={this.state.authUser} />
-          )}
-        /> */}
-        {/* Why double false in console */}
-        <AuthRedirect 
+        <AuthRedirect
           path="/login"
           component={SignPage}
           child={LoginForm}
@@ -116,7 +103,7 @@ class App extends React.Component {
             notyService: this.props.notyService
           }}
         />
-        <AuthRedirect 
+        <AuthRedirect
           path="/register"
           component={SignPage}
           child={RegisterForm}

@@ -53,6 +53,7 @@ class ProfilePage extends React.Component {
     updatedUser.user.firstname = this.state.firstname;
     updatedUser.user.lastname = this.state.lastname;
     updatedUser.user.phone = this.state.phone;
+    this.props.setAuthUser(updatedUser.user);
     await this.props.updateData(updatedUser);
   };
 

@@ -30,8 +30,9 @@ class RegisterForm extends React.Component {
         })
       );
       this.props.setAuthUser(response.data);
+      this.props.history.push("/");
     } catch (errors) {
-      this.props.notyService.error(errors);
+      //this.props.notyService.error(errors);
     }
   };
 
