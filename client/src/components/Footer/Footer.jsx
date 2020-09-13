@@ -6,7 +6,9 @@ function Footer() {
     <>
       <footer className="footer">
         <div className="footer__logo-box u-margin-bottom-big">
-          <NavLink to="/" className="footer__logo footer__link">BarberLand&trade;</NavLink>
+          <NavLink to="/" className="footer__logo footer__link">
+            BarberLand&trade;
+          </NavLink>
         </div>
         <div className="footer__row">
           <div className="footer__navigation">
