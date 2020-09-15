@@ -14,9 +14,10 @@ To run the project you need to:<br />
 5.run nodejs server using command: <br />
   npm start<br />
 6.go to client directory<br />
-7.run client server using command: <br />
+7.run npm install command to download all required packages<br />
+8.run client server using command: <br />
   npm start<br />
-8.open your browser and go to http://localhost:3001 or whatever port you set up<br />
+9.open your browser and go to http://localhost:3001 or whatever port you set up<br />
 
 TODO:<br />
 1.responsive<br />
