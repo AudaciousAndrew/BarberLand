@@ -1,11 +1,11 @@
 # BarberLand
-# Technologies used:<br />
+# Technologies:<br />
 Client:SCCS,ReactJS,NotyJS,axios,indicative<br />
 Server:NodeJS,ExpressJS,Mongoose,bcryptjs,jsonwebtoken,hapi/joi<br />
 DB:MongoDB<br />
 
 
-# How to run the project you need to:<br />
+# How to run the project:<br />
 1.create and run mongoDB instance called barberland<br />
 2.go to server directory<br />
 3.run npm install command to download all required packages<br />
