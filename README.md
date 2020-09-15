@@ -11,3 +11,8 @@ To run the project you need to:<br />
 7.run client server using command: <br />
   npm start<br />
 8.open your browser and go to http://localhost:3001 or whatever port you set up<br />
+
+TODO:<br />
+1.responsive
+2.accept forms on enter press
+
