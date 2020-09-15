@@ -1,6 +1,6 @@
 # BarberLand
 Technologies used:<br />
-Client:ReactJS,NotyJS,axios,indicative<br />
+Client:SCCS,ReactJS,NotyJS,axios,indicative<br />
 Server:NodeJS,ExpressJS,Mongoose,bcryptjs,jsonwebtoken<br />
 DB:MongoDB<br />
 
