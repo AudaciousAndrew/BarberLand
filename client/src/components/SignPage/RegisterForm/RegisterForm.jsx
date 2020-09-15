@@ -9,31 +9,27 @@ class RegisterForm extends React.Component {
       login: "",
       email: "",
       password: "",
-      password_confirmation: ""
+      password_confirmation: "",
     };
   }
 
-  handleInputChange = event => {
+  handleInputChange = (event) => {
     this.setState({
-      [event.target.name]: event.target.value
+      [event.target.name]: event.target.value,
     });
   };
 
   handleSubmit = async () => {
-    try {
-      const response = await this.props.registerUser(this.state);
-      localStorage.setItem(
-        "user",
-        JSON.stringify({
-          token: response.headers["auth-token"],
-          user: response.data
-        })
-      );
-      this.props.setAuthUser(response.data);
-      this.props.history.push("/");
-    } catch (errors) {
-      //this.props.notyService.error(errors);
-    }
+    const response = await this.props.registerUser(this.state);
+    localStorage.setItem(
+      "user",
+      JSON.stringify({
+        token: response.headers["auth-token"],
+        user: response.data,
+      })
+    );
+    this.props.setAuthUser(response.data);
+    this.props.history.push("/");
   };
 
   render() {
@@ -99,7 +95,7 @@ class RegisterForm extends React.Component {
               Confirm password
             </label>
           </div>
-          <div className="form__group">
+          <div className="form__group u-margin-bottom-small">
             <ButtonAction
               className="btn-square btn-square--dark-grey btn-square--w-100"
               text="Submit"

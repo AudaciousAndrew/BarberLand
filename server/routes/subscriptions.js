@@ -14,23 +14,23 @@ router.post("/add", async (req, res) => {
   }
 });
 
-router.post("/delete", verify, async (req, res) => {
+router.delete("/delete", verify, async (req, res) => {
   try {
     await Subscriptions.deleteMany(
       { type: req.body.type, userId: req.body.userId },
-      function(err, subs) {
+      function (err, subs) {
         if (err) {
           res.status(400).send({ status: "fail", message: err });
         } else {
           if (subs.deletedCount === 0) {
             res.status(200).send({
               status: "success",
-              message: "You don't have subscriptions of this type."
+              message: "You don't have subscriptions of this type.",
             });
           } else {
             res.status(200).send({
               status: "success",
-              message: "Successefully removed all subscriptions of this type."
+              message: "Successefully removed all subscriptions of this type.",
             });
           }
         }
@@ -41,9 +41,9 @@ router.post("/delete", verify, async (req, res) => {
   }
 });
 
-router.post("/delete/all", verify, async (req, res) => {
+router.delete("/delete/all", verify, async (req, res) => {
   try {
-    await Subscriptions.deleteMany({ userId: req.body.userId }, function(
+    await Subscriptions.deleteMany({ userId: req.body.userId }, function (
       err,
       subs
     ) {
@@ -53,12 +53,12 @@ router.post("/delete/all", verify, async (req, res) => {
         if (subs.deletedCount === 0) {
           res.status(200).send({
             status: "success",
-            message: "You don't have any subscriptions."
+            message: "You don't have any subscriptions.",
           });
         } else {
           res.status(200).send({
             status: "success",
-            message: "Successefully removed all subscriptions."
+            message: "Successefully removed all subscriptions.",
           });
         }
       }
@@ -68,23 +68,23 @@ router.post("/delete/all", verify, async (req, res) => {
   }
 });
 
-router.post("/delete/one", verify, async (req, res) => {
+router.delete("/delete/one", verify, async (req, res) => {
   try {
     await Subscriptions.deleteOne(
       { userId: req.body.userId, _id: req.body.subId },
-      function(err, subs) {
+      function (err, subs) {
         if (err) {
           res.status(400).send({ status: "fail", message: err });
         } else {
           if (subs.deletedCount === 0) {
             res.status(200).send({
               status: "success",
-              message: "You don't have any subscriptions."
+              message: "You don't have any subscriptions.",
             });
           } else {
             res.status(200).send({
               status: "success",
-              message: "Successefully removed this subscription."
+              message: "Successefully removed this subscription.",
             });
           }
         }
@@ -97,7 +97,7 @@ router.post("/delete/one", verify, async (req, res) => {
 
 router.post("/get/all", verify, async (req, res) => {
   try {
-    await Subscriptions.find({ userId: req.body.userId }, function(err, subs) {
+    await Subscriptions.find({ userId: req.body.userId }, function (err, subs) {
       if (err) {
         res.status(400).send({ status: "fail", message: err });
       } else {

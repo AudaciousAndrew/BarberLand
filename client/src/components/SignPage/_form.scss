@@ -7,7 +7,7 @@
   font-size: $default-font-size;
   animation: moveInRight 0.5s ease-in;
   animation-fill-mode: backwards;
-  
+
   &__input {
     @include input-styles;
     width: 100%;
@@ -27,19 +27,6 @@
     margin-left: 2rem;
     margin-top: 0.7rem;
     transition: all 0.3s;
-  }
-
-  &__remember-label {
-    font-size: 1.2rem;
-  }
-
-  &__remember-wrapper {
-    display: flex;
-    align-items: center;
-    input {
-      margin-right: 0.2rem;
-      transform: scale(1.2);
-    }
   }
 
   &__text-link {

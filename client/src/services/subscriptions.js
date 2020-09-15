@@ -7,11 +7,11 @@ export default class SubscriptionsService {
     const rules = {
       firstname: "required|string",
       lastname: "required|string",
-      phone: "required|string"
+      phone: "required|string",
     };
     const messages = {
       required: "Please provide your {{ field }}.",
-      string: "Wrong string format"
+      string: "Wrong string format",
     };
 
     try {
@@ -27,19 +27,19 @@ export default class SubscriptionsService {
         this.notyService.error(response.data.message);
       }
     } catch (errors) {
-      errors.forEach(element => this.notyService.error(element.message));
+      errors.forEach((element) => this.notyService.error(element.message));
     }
   }
 
   async unsubscribe(userId, type, token) {
     try {
-      const response = await axios.post(
+      const response = await axios.delete(
         `${config.apiUrl}/subscription/delete`,
         { type, userId },
         {
           headers: {
-            "auth-token": token
-          }
+            "auth-token": token,
+          },
         }
       );
       if (response.data.status === "success") {
@@ -54,13 +54,13 @@ export default class SubscriptionsService {
 
   async removeAll(userId, token) {
     try {
-      const response = await axios.post(
+      const response = await axios.delete(
         `${config.apiUrl}/subscription/delete/all`,
         { userId },
         {
           headers: {
-            "auth-token": token
-          }
+            "auth-token": token,
+          },
         }
       );
       if (response.data.status === "success") {
@@ -80,8 +80,8 @@ export default class SubscriptionsService {
         { userId },
         {
           headers: {
-            "auth-token": token
-          }
+            "auth-token": token,
+          },
         }
       );
       return response.data;
@@ -92,13 +92,13 @@ export default class SubscriptionsService {
 
   async removeOne(userId, token, subId) {
     try {
-      await axios.post(
+      await axios.delete(
         `${config.apiUrl}/subscription/delete/one`,
         { userId, subId },
         {
           headers: {
-            "auth-token": token
-          }
+            "auth-token": token,
+          },
         }
       );
     } catch (error) {

@@ -4,7 +4,7 @@
   "scripts": {
     "start": "nodemon index.js",
     "init-db": "node ./utils/initDB.js",
-    "clean-db": "node ./utils/clearDB.js"
+    "clean-db": "node ./utils/cleanDB.js"
   },
   "author": "",
   "license": "ISC",

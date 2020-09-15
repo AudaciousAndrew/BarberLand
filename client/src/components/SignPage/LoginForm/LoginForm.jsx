@@ -8,34 +8,28 @@ class LoginForm extends React.Component {
 
     this.state = {
       login: "",
-      password: ""
+      password: "",
     };
   }
 
-  handleInput = event => {
+  handleInput = (event) => {
     event.preventDefault();
     this.setState({
-      [event.target.name]: event.target.value
+      [event.target.name]: event.target.value,
     });
   };
 
   handleSubmit = async () => {
-    try {
-      const response = await this.props.loginUser(this.state);
-      localStorage.setItem(
-        "user",
-        JSON.stringify({
-          token: response.headers["auth-token"],
-          user: response.data
-        })
-      );
-      this.props.setAuthUser(response.data);
-      this.props.history.push("/");
-    } catch (errors) {
-      //console.log("from login form");
-      // console.error(errors);
-      //this.props.notyService.error(errors);
-    }
+    const response = await this.props.loginUser(this.state);
+    localStorage.setItem(
+      "user",
+      JSON.stringify({
+        token: response.headers["auth-token"],
+        user: response.data,
+      })
+    );
+    this.props.setAuthUser(response.data);
+    this.props.history.push("/");
   };
 
   render() {
@@ -73,17 +67,6 @@ class LoginForm extends React.Component {
               Password
             </label>
           </div>
-          <div className="form__group u-text-small u-clearfix">
-            <div className="form__remember-wrapper u-float-left">
-              <input id="remember" type="checkbox" />
-              <label htmlFor="remember">Remember Me</label>
-            </div>
-            <ButtonLink
-              location="/register"
-              text="Forgot Password?"
-              className="form__text-link u-float-right"
-            />
-          </div>
           <div className="form__group">
             <ButtonAction
               text="Enter"
@@ -91,8 +74,8 @@ class LoginForm extends React.Component {
               handleClick={this.handleSubmit}
             />
           </div>
-          <div className="form__group u-text-small u-center-text u-margin-top-medium">
-            <span>Don't have an account yet?</span>
+          <div className="form__group u-text-small u-center-text">
+            <div>Don't have an account yet?</div>
             <ButtonLink
               text="Sign Up"
               location="/register"

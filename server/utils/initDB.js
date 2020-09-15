@@ -1,15 +1,20 @@
+//import models
 const Story = require("../models/Story");
 const ServiceCard = require("../models/ServiceCard");
+const Service = require("../models/Service");
+//import ORM
 const mongoose = require("mongoose");
+//import env variables
 const dotenv = require("dotenv");
 dotenv.config();
 
 async function initDB() {
+  console.log("[server] db initialization");
   //Connect to DB
   mongoose.connect(
     process.env.DB_CONNECT,
     { useNewUrlParser: true, useUnifiedTopology: true },
-    () => console.log("connected to db")
+    () => console.log("[server] connected to db")
   );
 
   //init stories
@@ -78,7 +83,38 @@ async function initDB() {
     slug: "shaving",
   }).save();
 
+  //init services
+  await new Service({
+    title: "exceptional hairstyle",
+    imgpath: "/img/card-1.jpg",
+    description: `Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+        Eligendi non quis exercitationem culpa nesciunt nihil aut nostrum
+        explicabo reprehenderit optio amet ab temporibus asperiores quasi cupiditate.
+         Voluptatum ducimus voluptates voluptas`,
+    slug: "hairstyle",
+  }).save();
+
+  await new Service({
+    title: "beard trimming",
+    imgpath: "/img/card-2.jpg",
+    description: `Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+        Eligendi non quis exercitationem culpa nesciunt nihil aut nostrum
+        explicabo reprehenderit optio amet ab temporibus asperiores quasi cupiditate.
+         Voluptatum ducimus voluptates voluptas`,
+    slug: "beard",
+  }).save();
+
+  await new Service({
+    title: "straight razor shave",
+    imgpath: "/img/card-3.jpg",
+    description: `Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+        Eligendi non quis exercitationem culpa nesciunt nihil aut nostrum
+        explicabo reprehenderit optio amet ab temporibus asperiores quasi cupiditate.
+         Voluptatum ducimus voluptates voluptas`,
+    slug: "shaving",
+  }).save();
+
   //Close db connection
-  mongoose.disconnect(() => console.log("db connection closed"));
+  mongoose.disconnect(() => console.log("[server] db connection closed"));
 }
 initDB();

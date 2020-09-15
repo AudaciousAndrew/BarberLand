@@ -1,7 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
-const cors = require('cors');
+const cors = require("cors");
 const app = express();
 
 dotenv.config();
@@ -18,17 +18,16 @@ const subscriptionRoute = require("./routes/subscriptions");
 mongoose.connect(
   process.env.DB_CONNECT,
   { useNewUrlParser: true, useUnifiedTopology: true },
-  () => console.log("connected to db")
+  () => console.log("[server] connected to db")
 );
 
 let corsOptions = {
-  exposedHeaders: "auth-token"
-}
+  exposedHeaders: "auth-token",
+};
 
 //Middleware
 app.use(express.json());
 app.use(cors(corsOptions));
-
 
 //Route Middlewares
 app.use("/api/user", authRoute);
@@ -38,4 +37,4 @@ app.use("/api/services/cards", serviceCardsRoute);
 app.use("/api/profile", profileRoute);
 app.use("/api/stories", storiesRoute);
 
-app.listen(3000, () => console.log("server up and running"));
+app.listen(3000, () => console.log("[server] server up and running"));
