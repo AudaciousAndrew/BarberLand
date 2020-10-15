@@ -1,4 +1,5 @@
 # BarberLand
+Web application that allows registered users to sign up for procedures in a barbershop company, choose prefered master and time.
 # Technologies:<br />
 Client:SCCS,ReactJS,NotyJS,axios,indicative<br />
 Server:NodeJS,ExpressJS,Mongoose,bcryptjs,jsonwebtoken,hapi/joi<br />
