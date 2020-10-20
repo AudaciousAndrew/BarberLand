@@ -1,5 +1,5 @@
 import React from "react";
-import ButtonAction from "../../Buttons/ButtonAction/ButtonAction";
+import ButtonAction from "../../../uui/Buttons/ButtonAction/ButtonAction";
 
 class RegisterForm extends React.Component {
   constructor() {
@@ -32,10 +32,18 @@ class RegisterForm extends React.Component {
     this.props.history.push("/");
   };
 
+  onKeyDown = (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      e.stopPropagation();
+      this.handleSubmit();
+    }
+  };
+
   render() {
     return (
       <>
-        <form className="form">
+        <form className="form" onKeyDown={this.onKeyDown}>
           <div className="u-center-text u-margin-bottom-small">
             <h2 className="heading-tertiary">Register</h2>
           </div>

@@ -1,6 +1,6 @@
 import React from "react";
-import ButtonLink from "../../Buttons/ButtonLink/ButtonLink";
-import ButtonAction from "../../Buttons/ButtonAction/ButtonAction";
+import ButtonAction from "../../../uui/Buttons/ButtonAction/ButtonAction";
+import ButtonLink from "../../../uui/Buttons/ButtonLink/ButtonLink";
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -32,10 +32,18 @@ class LoginForm extends React.Component {
     this.props.history.push("/");
   };
 
+  onKeyDown = (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      e.stopPropagation();
+      this.handleSubmit();
+    }
+  };
+
   render() {
     return (
       <>
-        <form className="form">
+        <form className="form" onKeyDown={this.onKeyDown}>
           <div className="u-center-text u-margin-bottom-small">
             <h2 className="heading-tertiary">Login</h2>
           </div>

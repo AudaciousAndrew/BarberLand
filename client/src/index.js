@@ -1,23 +1,23 @@
 //Defaults
 import React from "react";
-import ReactDOM from "react-dom";
+import { render } from "react-dom";
 import { BrowserRouter, Route, withRouter } from "react-router-dom";
 //Styles
 import "./styles/sass/main.scss";
 //Components
-import Navbar from "./components/NavBar/NavBar";
-import Footer from "./components/Footer/Footer";
-import HomePage from "./components/HomePage/HomePage";
-import ServicesPage from "./components/ServicesPage/ServicesPage";
-import SignPage from "./components/SignPage/SignPage";
-import LoginForm from "./components/SignPage/LoginForm/LoginForm";
-import RegisterForm from "./components/SignPage/RegisterForm/RegisterForm";
+import Navbar from "./components/layout/NavBar/NavBar";
+import Footer from "./components/layout/Footer/Footer";
+import HomePage from "./components/pages/HomePage/HomePage";
+import ServicesPage from "./components/pages/ServicesPage/ServicesPage";
+import SignPage from "./components/pages/SignPage/SignPage";
+import LoginForm from "./components/pages/SignPage/LoginForm/LoginForm";
+import RegisterForm from "./components/pages/SignPage/RegisterForm/RegisterForm";
 import ScrollToTopRoute from "./utilities/ScrollToTopRoute";
-import SingleServiceContainer from "./components/SingleService/SingleServiceContainer";
-import ProfilePage from "./components/ProfilePage/ProfilePage";
+import SingleServiceContainer from "./components/pages/ServicesPage/SingleService/SingleServiceContainer";
+import ProfilePage from "./components/pages/ProfilePage/ProfilePage";
 //Protected Routes
-import NotAuthRedirect from "./components/NotAuthRedirect/NotAuthRedirect";
-import AuthRedirect from "./components/AuthRedirect/AuthRedirect";
+import NotAuthRedirect from "./components/utils/NotAuthRedirect/NotAuthRedirect";
+import AuthRedirect from "./components/utils/AuthRedirect/AuthRedirect";
 //Services
 import AuthService from "./services/auth";
 import ServicesService from "./services/services";
@@ -29,7 +29,7 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      authUser: null
+      authUser: null,
     };
   }
 
@@ -38,14 +38,14 @@ class App extends React.Component {
 
     if (user) {
       this.setState({
-        authUser: JSON.parse(user).user
+        authUser: JSON.parse(user).user,
       });
     }
   }
 
-  setAuthUser = authUser => {
+  setAuthUser = (authUser) => {
     this.setState({
-      authUser
+      authUser,
     });
   };
 
@@ -68,7 +68,7 @@ class App extends React.Component {
         <ScrollToTopRoute path="/services" component={ServicesPage} />
         <Route
           path="/service/:slug"
-          render={props => (
+          render={(props) => (
             <SingleServiceContainer
               {...props}
               subscribe={this.props.subscriptionsService.subscribe}
@@ -88,7 +88,7 @@ class App extends React.Component {
             updateData: this.props.profileService.updateData,
             removeAll: this.props.subscriptionsService.removeAll,
             removeOne: this.props.subscriptionsService.removeOne,
-            getAll: this.props.subscriptionsService.getAll
+            getAll: this.props.subscriptionsService.getAll,
           }}
           isAuth={this.state.authUser !== null}
         />
@@ -100,7 +100,7 @@ class App extends React.Component {
           props={{
             loginUser: this.props.authService.loginUser,
             setAuthUser: this.setAuthUser,
-            notyService: this.props.notyService
+            notyService: this.props.notyService,
           }}
         />
         <AuthRedirect
@@ -111,7 +111,7 @@ class App extends React.Component {
           props={{
             registerUser: this.props.authService.registerUser,
             setAuthUser: this.setAuthUser,
-            notyService: this.props.notyService
+            notyService: this.props.notyService,
           }}
         />
         {location.pathname !== "/login" &&
@@ -121,7 +121,7 @@ class App extends React.Component {
   }
 }
 
-const Main = withRouter(props => {
+const Main = withRouter((props) => {
   return (
     <App
       subscriptionsService={new SubscriptionsService()}
@@ -134,7 +134,7 @@ const Main = withRouter(props => {
   );
 });
 
-ReactDOM.render(
+render(
   <BrowserRouter>
     <Main />
   </BrowserRouter>,

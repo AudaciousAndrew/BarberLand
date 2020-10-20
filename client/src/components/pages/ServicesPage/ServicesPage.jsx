@@ -1,8 +1,7 @@
 import React from "react";
-import Header from "../Header/Header";
+import Header from "../../layout/Header/Header";
 import SectionTeam from "./SectionTeam/SectionTeam";
 import SectionServices from "./SectionServices/SectionServices";
-
 
 function ServicesPages() {
   return (

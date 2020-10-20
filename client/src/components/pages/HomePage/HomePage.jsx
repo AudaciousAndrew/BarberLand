@@ -1,7 +1,7 @@
 import React from "react";
-import Header from "../Header/Header";
+import Header from "../../layout/Header/Header";
 import SectionReviews from "./SectionReviews/SectionReviews";
-import ButtonAction from "../Buttons/ButtonAction/ButtonAction";
+import ButtonAction from "../../uui/Buttons/ButtonAction/ButtonAction";
 
 class HomePage extends React.Component {
   constructor(props) {

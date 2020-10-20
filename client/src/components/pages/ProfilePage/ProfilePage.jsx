@@ -1,5 +1,5 @@
 import React from "react";
-import Header from "../../components/Header/Header";
+import Header from "../../layout/Header/Header";
 import Profile from "./Profile/Profile";
 
 class ProfilePage extends React.Component {
@@ -10,7 +10,7 @@ class ProfilePage extends React.Component {
       lastname: "",
       phone: "",
       date: "",
-      subscriptions: []
+      subscriptions: [],
     };
     this.firstnameRef = React.createRef();
     this.lastnameRef = React.createRef();
@@ -29,22 +29,22 @@ class ProfilePage extends React.Component {
       lastname: userData.user.lastname,
       phone: userData.user.phone,
       date: userData.user.date,
-      subscriptions
+      subscriptions,
     });
   }
 
-  handleInputChange = event => {
+  handleInputChange = (event) => {
     this.setState({
-      [event.target.name]: event.target.value
+      [event.target.name]: event.target.value,
     });
   };
 
-  handleEditInput = ref => {
+  handleEditInput = (ref) => {
     ref.current.disabled = false;
     ref.current.focus();
   };
 
-  handleOnBlur = ref => {
+  handleOnBlur = (ref) => {
     ref.current.disabled = true;
   };
 
@@ -63,10 +63,10 @@ class ProfilePage extends React.Component {
     this.setState({ subscriptions: [] });
   };
 
-  handleRemoveOne = async subId => {
+  handleRemoveOne = async (subId) => {
     const userData = JSON.parse(localStorage.getItem("user"));
     const subscriptions = this.state.subscriptions.filter(
-      element => element._id !== subId
+      (element) => element._id !== subId
     );
     await this.props.removeOne(userData.user._id, userData.token, subId);
     this.setState({ subscriptions });

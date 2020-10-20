@@ -1,21 +1,21 @@
 import React from "react";
 import Card from "../Card/Card";
 import axios from "axios";
-import config from "../../../config/configuration.js";
+import config from "../../../../config/configuration.js";
 
 class SectionServices extends React.Component {
   constructor() {
     super();
 
     this.state = {
-      cards: []
+      cards: [],
     };
   }
 
   async componentDidMount() {
     const response = await axios.get(`${config.apiUrl}/services/cards/all`);
     this.setState({
-      cards: response.data
+      cards: response.data,
     });
   }
 
@@ -27,7 +27,7 @@ class SectionServices extends React.Component {
             <h2 className="heading-secondary">Services we provide</h2>
           </div>
           <div className="cards-container">
-            {this.state.cards.map(card => {
+            {this.state.cards.map((card) => {
               return (
                 <Card
                   key={card._id}
@@ -37,7 +37,7 @@ class SectionServices extends React.Component {
                   slug={card.slug}
                 >
                   <ul>
-                    {card.features.map(element => {
+                    {card.features.map((element) => {
                       return <li key={element}>{element}</li>;
                     })}
                   </ul>

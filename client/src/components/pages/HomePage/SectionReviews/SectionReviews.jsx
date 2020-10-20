@@ -2,22 +2,22 @@ import React from "react";
 import axios from "axios";
 import Story from "./Story/Story";
 import BgVideo from "./BgVideo/BgVideo";
-import ButtonLink from "../../Buttons/ButtonLink/ButtonLink";
-import config from "../../../config/configuration.js";
+import ButtonLink from "../../../uui/Buttons/ButtonLink/ButtonLink";
+import config from "../../../../config/configuration.js";
 
 class SectionReviews extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      stories: []
+      stories: [],
     };
   }
 
   async componentDidMount() {
     const response = await axios.get(`${config.apiUrl}/stories/all`);
     this.setState({
-      stories: response.data
+      stories: response.data,
     });
   }
 
@@ -32,7 +32,7 @@ class SectionReviews extends React.Component {
             </h2>
           </div>
           <div className="reviews-container">
-            {this.state.stories.map(element => {
+            {this.state.stories.map((element) => {
               return (
                 <Story
                   key={element._id}

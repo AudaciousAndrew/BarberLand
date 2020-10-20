@@ -1,5 +1,5 @@
 import React from "react";
-import ButtonAction from "../../Buttons/ButtonAction/ButtonAction";
+import ButtonAction from "../../../uui/Buttons/ButtonAction/ButtonAction";
 import Subscription from "./Subscription/Subscription";
 
 function Profile({
@@ -12,7 +12,7 @@ function Profile({
   firstnameRef,
   lastnameRef,
   phoneRef,
-  state
+  state,
 }) {
   return (
     <>
@@ -109,7 +109,7 @@ function Profile({
             </h4>
             <div className="profile__container">
               {state.subscriptions.length > 0 ? (
-                state.subscriptions.map(element => {
+                state.subscriptions.map((element) => {
                   return (
                     <Subscription
                       key={element._id}

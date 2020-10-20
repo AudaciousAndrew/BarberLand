@@ -9,33 +9,33 @@
 //import components style
 
 //Reusable components
-@import "../../components/Buttons/button";
-@import "../../components/Header/header";
-@import "../../components/Footer/footer";
+@import "../../components/uui/Buttons/button";
+@import "../../components/layout/Header/header";
+@import "../../components/layout/Footer/footer";
 
 //Navbar styles
-@import "../../components/NavBar/navBar";
-@import "../../components/NavBar/UserMenu/userMenu";
+@import "../../components/layout/NavBar/navBar";
+@import "../../components/layout/NavBar/UserMenu/userMenu";
 
 //Home page styles
-@import "../../components/HomePage/SectionReviews/sectionReviews";
-@import "../../components/HomePage/SectionReviews/BgVideo/bgVideo";
-@import "../../components/HomePage/SectionReviews/story/story";
+@import "../../components/pages/HomePage/SectionReviews/sectionReviews";
+@import "../../components/pages/HomePage/SectionReviews/BgVideo/bgVideo";
+@import "../../components/pages/HomePage/SectionReviews/story/story";
 
 //Sign page styles
-@import "../../components/SignPage/signPage";
-@import "../../components/SignPage/form";
+@import "../../components/pages/SignPage/signPage";
+@import "../../components/pages/SignPage/form";
 
 //Services page styles
-@import "../../components/ServicesPage/Card/card";
-@import "../../components/ServicesPage/SectionServices/_sectionServices";
-@import "../../components/ServicesPage/SectionTeam/Composition/composition";
-@import "../../components/ServicesPage/SectionTeam/sectionTeam";
+@import "../../components/pages/ServicesPage/Card/card";
+@import "../../components/pages/ServicesPage/SectionServices/_sectionServices";
+@import "../../components/pages/ServicesPage/SectionTeam/Composition/composition";
+@import "../../components/pages/ServicesPage/SectionTeam/sectionTeam";
 
 //Profile page styles
-@import "../../components/ProfilePage/profilePage";
-@import "../../components/ProfilePage/Profile/profile";
-@import "../../components/ProfilePage/Profile/Subscription/subscription";
+@import "../../components/pages/ProfilePage/profilePage";
+@import "../../components/pages/ProfilePage/Profile/profile";
+@import "../../components/pages/ProfilePage/Profile/Subscription/subscription";
 
 //Service page styles
-@import "../../components/SingleService/singleService";
+@import "../../components/pages/ServicesPage/SingleService/singleService";

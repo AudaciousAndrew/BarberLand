@@ -1,6 +1,6 @@
 import React from "react";
 import DatePicker from "react-datepicker";
-import ButtonAction from "../../Buttons/ButtonAction/ButtonAction";
+import ButtonAction from "../../../../uui/Buttons/ButtonAction/ButtonAction";
 import "react-datepicker/dist/react-datepicker.css";
 
 function SingleService({
@@ -10,7 +10,7 @@ function SingleService({
   handleDateChange,
   handleSubmit,
   handleUnsub,
-  state
+  state,
 }) {
   return (
     <>
@@ -65,7 +65,7 @@ function SingleService({
                 <div className="service__inputs-container">
                   <DatePicker
                     selected={state.date}
-                    onChange={date => handleDateChange(date)}
+                    onChange={(date) => handleDateChange(date)}
                     showTimeSelect
                     minTime={new Date().setHours(8)}
                     maxTime={new Date().setHours(20)}
