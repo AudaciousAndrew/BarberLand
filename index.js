@@ -1,5 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const path = require("path");
 const dotenv = require("dotenv");
 const cors = require("cors");
 const app = express();
@@ -14,11 +15,18 @@ const serviceCardsRoute = require("./routes/serviceCards");
 const servicesRoute = require("./routes/services");
 const subscriptionRoute = require("./routes/subscriptions");
 
+const PORT = process.env.PORT || 8080;
+
 //Connect to DB
 mongoose.connect(
-  process.env.DB_CONNECT,
+  process.env.MONGODB_URI || process.env.DB_CONNECT,
   { useNewUrlParser: true, useUnifiedTopology: true },
-  () => console.log("[server] connected to db")
+  () =>
+    console.log(
+      `[server] connected to ${
+        process.env.MONGODB_URI || process.env.DB_CONNECT
+      }`
+    )
 );
 
 let corsOptions = {
@@ -37,4 +45,14 @@ app.use("/api/services/cards", serviceCardsRoute);
 app.use("/api/profile", profileRoute);
 app.use("/api/stories", storiesRoute);
 
-app.listen(3000, () => console.log("[server] server up and running"));
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("../client/build"));
+
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "..", "client", "build", "index.html"));
+  });
+}
+
+app.listen(PORT, () =>
+  console.log(`[server] server up and running at port:${PORT}`)
+);

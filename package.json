@@ -2,9 +2,11 @@
   "name": "barberland-server",
   "version": "1.0.0",
   "scripts": {
-    "start": "nodemon index.js",
+    "start": "node index.js",
+    "dev": "nodemon index.js",
     "init-db": "node ./utils/initDB.js",
-    "clean-db": "node ./utils/cleanDB.js"
+    "clean-db": "node ./utils/cleanDB.js",
+    "heroku-postbuild": "cd ../client && npm install && npm install --only=dev --no-shrinkwrap && npm run build"
   },
   "author": "",
   "license": "ISC",
