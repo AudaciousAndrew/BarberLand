@@ -21,6 +21,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "dev": "cross-env NODE_ENV=development react-scripts start",
     "compile:sass": "node-sass client/src/styles/sass/main.scss client/src/styles/css/style.css",
     "watch:sass": "nodemon -e scss -x \"npm run compile:sass\""
   },
@@ -40,6 +41,7 @@
     ]
   },
   "devDependencies": {
+    "cross-env": "^7.0.2",
     "node-sass": "^4.14.1",
     "nodemon": "^2.0.4"
   }
