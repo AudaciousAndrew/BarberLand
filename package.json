@@ -6,7 +6,7 @@
     "dev": "nodemon index.js",
     "init-db": "node ./utils/initDB.js",
     "clean-db": "node ./utils/cleanDB.js",
-    "heroku-postbuild": "cd ../client && npm install && npm install --only=dev --no-shrinkwrap && npm run build"
+    "heroku-postbuild": "cd client && npm install && npm install --only=dev --no-shrinkwrap && npm run build"
   },
   "author": "",
   "license": "ISC",
