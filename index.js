@@ -16,18 +16,14 @@ const servicesRoute = require("./routes/services");
 const subscriptionRoute = require("./routes/subscriptions");
 
 const PORT = process.env.PORT || 8080;
+const DB = process.env.MONGODB_URI || process.env.DB_CONNECT;
 
 //Connect to DB
-mongoose.connect(
-  process.env.MONGODB_URI || process.env.DB_CONNECT,
-  { useNewUrlParser: true, useUnifiedTopology: true },
-  () =>
-    console.log(
-      `[server] connected to ${
-        process.env.MONGODB_URI || process.env.DB_CONNECT
-      }`
-    )
-);
+mongoose.connect(DB, { useNewUrlParser: true, useUnifiedTopology: true });
+
+mongoose.connection.on("connected", () => {
+  console.log(`[server] successfully connected to ${DB}`);
+});
 
 let corsOptions = {
   exposedHeaders: "auth-token",
